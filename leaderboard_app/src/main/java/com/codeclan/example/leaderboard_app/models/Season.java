@@ -1,16 +1,26 @@
 package com.codeclan.example.leaderboard_app.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
-
+@Entity
+@Table(name = "seasons")
 public class Season {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "total_matches")
     private int totalMatches;
 
+    @JsonIgnoreProperties(value = "season")
+    @OneToMany(mappedBy = "season", fetch = FetchType.LAZY)
     private List<Match> matches;
 
     public Season(String name, int totalMatches) {

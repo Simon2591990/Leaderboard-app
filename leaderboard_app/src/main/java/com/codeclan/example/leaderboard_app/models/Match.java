@@ -1,16 +1,29 @@
 package com.codeclan.example.leaderboard_app.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
+@Table(name = "matches")
 public class Match {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "game_number")
     private int gameNumber;
 
+    @JsonIgnoreProperties(value = "match")
+    @OneToMany(mappedBy = "match", fetch = FetchType.LAZY)
     private List<Team> teams;
 
+    @JsonIgnoreProperties(value = "matches")
+    @ManyToOne
+    @JoinColumn(name = "season_id", nullable = false)
     private Season season;
 
 
