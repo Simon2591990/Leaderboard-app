@@ -97,4 +97,12 @@ public class Team {
     public void setMatch(Match match) {
         this.match = match;
     }
+    public void addPlayer(Player player){
+        this.players.add(player);
+    }
+    public void addPlayer(ArrayList<Player> players){
+        for (Player player : players){
+            this.addPlayer(player);
+        }
+    }
 }
