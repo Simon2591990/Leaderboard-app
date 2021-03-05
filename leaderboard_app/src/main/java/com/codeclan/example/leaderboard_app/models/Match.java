@@ -1,5 +1,6 @@
 package com.codeclan.example.leaderboard_app.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Match {
@@ -10,12 +11,13 @@ public class Match {
 
     private List<Team> teams;
 
-//    private Season season;
+    private Season season;
 
 
-    public Match(int gameNumber, List<Team> teams) {
+    public Match(int gameNumber, Season season) {
         this.gameNumber = gameNumber;
-        this.teams = teams;
+        this.season = season;
+        this.teams = new ArrayList<Team>();
     }
     public Match(){
 
@@ -43,5 +45,13 @@ public class Match {
 
     public void setTeams(List<Team> teams) {
         this.teams = teams;
+    }
+
+    public Season getSeason() {
+        return season;
+    }
+
+    public void setSeason(Season season) {
+        this.season = season;
     }
 }

@@ -9,14 +9,15 @@ public class Team {
     private List<Player> players;
     private String result;
     private int goals;
-//    private Match match;
+    private Match match;
 
 
-    public Team(String name, ArrayList<Player> players) {
+    public Team(String name, Match match) {
         this.name = name;
-        this.players = players;
+        this.players = new ArrayList<Player>();
         this.result = "";
         this.goals = 0;
+        this.match = match;
     }
 
     public Team(){
@@ -60,5 +61,13 @@ public class Team {
 
     public void setGoals(int goals) {
         this.goals = goals;
+    }
+
+    public Match getMatch() {
+        return match;
+    }
+
+    public void setMatch(Match match) {
+        this.match = match;
     }
 }

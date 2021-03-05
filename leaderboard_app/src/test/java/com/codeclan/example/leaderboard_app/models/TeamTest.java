@@ -11,24 +11,18 @@ import static org.junit.jupiter.api.Assertions.*;
 class TeamTest {
 
     Team team;
-    Player player1, player2, player3, player4, player5;
-    ArrayList<Player> players, players2;
+    Player player1, player2, player3;
+    Match match1, match2;
+    Season season;
+
 
 
     @BeforeEach
     void setUp() {
-        player1 = new Player("Player1");
-        player2 = new Player("Player2");
-        player3 = new Player("Player3");
-        player4 = new Player("Player4");
-        player5 = new Player("Player5");
-        players = new ArrayList<Player>();
-        players.add(player1);
-        players.add(player2);
-        players.add(player3);
-        players.add(player4);
-        players.add(player5);
-        team = new Team("Team1", players);
+        season = new Season("Season 1",10);
+        match1 = new Match(1, season);
+        match2 = new Match(2, season);
+        team = new Team("Team1", match1);
     }
 
     @Test
@@ -44,7 +38,7 @@ class TeamTest {
 
     @Test
     void getPlayers() {
-        assertEquals(5, team.getPlayers().size());
+        assertEquals(0, team.getPlayers().size());
     }
 
     @Test
@@ -55,7 +49,6 @@ class TeamTest {
          players2.add(player3);
          team.setPlayers(players2);
          assertEquals(3, team.getPlayers().size());
-
     }
 
     @Test
@@ -79,5 +72,16 @@ class TeamTest {
     void setGoals() {
         team.setGoals(1);
         assertEquals(1, team.getGoals());
+    }
+
+    @Test
+    void getMatch() {
+        assertEquals(1, team.getMatch().getGameNumber());
+    }
+
+    @Test
+    void setMatch() {
+        team.setMatch(match2);
+        assertEquals(2, team.getMatch().getGameNumber());
     }
 }

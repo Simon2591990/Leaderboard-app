@@ -5,6 +5,8 @@ import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
+
 
 @Entity
 @Table(name = "players")
@@ -31,15 +33,15 @@ public class Player {
     @Column(name = "points")
     private int points;
 
-//    @JsonIgnoreProperties(value = "players")
-//    @ManyToMany
-//    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
-//    @JoinTable(
-//            name = "players_teams",
-//            joinColumns = {@JoinColumn(name = "player_id" , nullable = false, updatable = false)},
-//            inverseJoinColumns = {@JoinColumn(name = "team_id", nullable = false, updatable = false)}
-//    )
-//    private List<Team> teams;
+    @JsonIgnoreProperties(value = "players")
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "players_teams",
+            joinColumns = {@JoinColumn(name = "player_id" , nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "team_id", nullable = false, updatable = false)}
+    )
+    private List<Team> teams;
 
 
 
@@ -51,7 +53,7 @@ public class Player {
         this.gamesLost = 0;
         this.gamesDrawn = 0;
         this.points = 0;
-//        this.teams = new ArrayList<Team>();
+        this.teams = new ArrayList<Team>();
     }
     public Player(){
 
