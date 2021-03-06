@@ -114,4 +114,11 @@ public class Player {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public List<Team> getTeams() {
+        return teams;
+    }
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
+    }
 }

@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class PlayerController {
@@ -31,4 +32,23 @@ public class PlayerController {
         playerRepository.save(player);
         return new ResponseEntity<>(player, HttpStatus.CREATED);
     }
+
+    @PutMapping(value = "/players/{id}")
+    public ResponseEntity<Player> updatePlayer(@RequestBody Player player, @PathVariable Long id) {
+        Optional<Player> playerToUpdateOptional = playerRepository.findById(id);
+        Player playerToUpdate = playerToUpdateOptional.get();
+
+        playerToUpdate.setName(player.getName());
+        playerToUpdate.setGamesPlayed(player.getGamesPlayed());
+        playerToUpdate.setGamesWon(player.getGamesWon());
+        playerToUpdate.setGamesDrawn(player.getGamesDrawn());
+        playerToUpdate.setGamesLost(player.getGamesLost());
+        playerToUpdate.setPoints(player.getPoints());
+        playerToUpdate.setTeams(player.getTeams());
+
+        playerRepository.save(playerToUpdate);
+        return new ResponseEntity<Player>(player, HttpStatus.OK);
+    }
+
+
 }
