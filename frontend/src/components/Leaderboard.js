@@ -7,21 +7,12 @@ const Leaderboard = () => {
 
     
     const getPlayers = () => {
-        fetch("/api/players/")
-        .then(res => res.json())
+        const request = new Request();
+
+        request.get("/api/players")
         .then(data => setPlayers(data))
     }
-    // const getPlayers = function(){
-    //     const request = new Request();
-    //     const playersRequest = request.get("/api/players")
-        
-    //     Promise.all([playersRequest])
-    //     .then((data) => {
-    //         setPlayers(data[0])
-    //     })
-    // }
-
-
+    
     useEffect(() => {
        getPlayers() 
     }, [])
