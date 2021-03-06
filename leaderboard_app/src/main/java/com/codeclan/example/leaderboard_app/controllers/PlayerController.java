@@ -50,5 +50,12 @@ public class PlayerController {
         return new ResponseEntity<Player>(player, HttpStatus.OK);
     }
 
+    @DeleteMapping(value = "/players/{id}")
+    public ResponseEntity<Player> deletePlayer(@PathVariable Long id) {
+        Player found = playerRepository.getOne(id);
+        playerRepository.delete(found);
+        return new ResponseEntity<> (null, HttpStatus.OK);
+    }
+
 
 }
