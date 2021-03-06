@@ -45,7 +45,7 @@ public class TeamController {
         teamToUpdate.setMatch(team.getMatch());
 
         teamRepository.save(teamToUpdate);
-        return new ResponseEntity<Team>(team, HttpStatus.OK);
+        return new ResponseEntity<Team>(teamToUpdate, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/teams/{id}")

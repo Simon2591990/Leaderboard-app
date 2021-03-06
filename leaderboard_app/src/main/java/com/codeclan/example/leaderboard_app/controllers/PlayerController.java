@@ -47,7 +47,7 @@ public class PlayerController {
         playerToUpdate.setTeams(player.getTeams());
 
         playerRepository.save(playerToUpdate);
-        return new ResponseEntity<Player>(player, HttpStatus.OK);
+        return new ResponseEntity<Player>(playerToUpdate, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/players/{id}")

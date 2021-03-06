@@ -41,16 +41,14 @@ public class MatchController {
         matchToUpdate.setGameNumber(match.getGameNumber());
         matchToUpdate.setTeams(match.getTeams());
         matchToUpdate.setSeason(match.getSeason());
-
-
-        matchRepository.save(seasonToUpdate);
-        return new ResponseEntity<Match>(player, HttpStatus.OK);
+        matchRepository.save(matchToUpdate);
+        return new ResponseEntity<Match>(matchToUpdate, HttpStatus.OK);
     }
 
-    @DeleteMapping(value = "/players/{id}")
-    public ResponseEntity<Player> deletePlayer(@PathVariable Long id) {
-        Player found = playerRepository.getOne(id);
-        playerRepository.delete(found);
+    @DeleteMapping(value = "/matches/{id}")
+    public ResponseEntity<Match> deleteMatch(@PathVariable Long id) {
+        Match found = matchRepository.getOne(id);
+        matchRepository.delete(found);
         return new ResponseEntity<> (null, HttpStatus.OK);
     }
 }

@@ -37,16 +37,12 @@ public class SeasonController {
         Optional<Season> seasonToUpdateOptional = seasonRepository.findById(id);
         Season seasonToUpdate = seasonToUpdateOptional.get();
 
-        playerToUpdate.setName(player.getName());
-        playerToUpdate.setGamesPlayed(player.getGamesPlayed());
-        playerToUpdate.setGamesWon(player.getGamesWon());
-        playerToUpdate.setGamesDrawn(player.getGamesDrawn());
-        playerToUpdate.setGamesLost(player.getGamesLost());
-        playerToUpdate.setPoints(player.getPoints());
-        playerToUpdate.setTeams(player.getTeams());
+        seasonToUpdate.setName(season.getName());
+        seasonToUpdate.setMatches(season.getMatches());
+        seasonToUpdate.setTotalMatches(season.getTotalMatches());
 
         seasonRepository.save(seasonToUpdate);
-        return new ResponseEntity<Season>(season, HttpStatus.OK);
+        return new ResponseEntity<Season>(seasonToUpdate, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/seasons/{id}")
