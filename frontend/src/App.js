@@ -1,9 +1,18 @@
 import React from 'react';
 import './App.css';
+import Header from './components/Header';
+import Leaderboard from './components/Leaderboard';
+import NavBar from './components/NavBar';
+import MainContent from './containers/MainContent';
 
 function App() {
   return (
-    <h1>Leaderboard app is alive</h1>
+    <>
+      <Header title="Tournament App"/>
+      <NavBar/>
+      <Leaderboard/>
+      <MainContent/>
+    </>
   );
 }
 
