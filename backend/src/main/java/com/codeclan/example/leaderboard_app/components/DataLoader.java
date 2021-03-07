@@ -130,6 +130,16 @@ public class DataLoader implements ApplicationRunner {
         season1.addMatch(match1);
         season1.addMatch(match2);
         season1.addMatch(match3);
+        season1.addPlayer(player1);
+        season1.addPlayer(player2);
+        season1.addPlayer(player3);
+        season1.addPlayer(player4);
+        season1.addPlayer(player5);
+        season1.addPlayer(player6);
+        season1.addPlayer(player7);
+        season1.addPlayer(player8);
+        season1.addPlayer(player9);
+        season1.addPlayer(player10);
         seasonRepository.save(season1);
 
 //        ArrayList<Player> players = new ArrayList<Player>();

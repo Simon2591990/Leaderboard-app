@@ -1,6 +1,7 @@
 package com.codeclan.example.leaderboard_app.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -23,10 +24,22 @@ public class Season {
     @OneToMany(mappedBy = "season", fetch = FetchType.LAZY)
     private List<Match> matches;
 
+    @JsonIgnoreProperties(value = {"seasons", "teams"})
+//    @JsonIgnoreProperties(value = "teams")
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            joinColumns = {@JoinColumn(name = "season_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "player_id", nullable = false, updatable = false)}
+    )
+    private List<Player> players;
+
+
     public Season(String name, int totalMatches) {
         this.name = name;
         this.totalMatches = totalMatches;
         this.matches = new ArrayList<Match>();
+        this.players = new ArrayList<Player>();
     }
 
     public Season(){
@@ -59,6 +72,18 @@ public class Season {
 
     public List<Match> getMatches() {
         return matches;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    public void addPlayer(Player player) {
+        this.players.add(player);
     }
 
     public void setMatches(List<Match> matches) {

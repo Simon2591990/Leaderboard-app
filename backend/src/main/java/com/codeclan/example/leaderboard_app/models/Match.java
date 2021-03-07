@@ -21,7 +21,7 @@ public class Match {
     @OneToMany(mappedBy = "match", fetch = FetchType.LAZY)
     private List<Team> teams;
 
-    @JsonIgnoreProperties(value = "matches")
+    @JsonIgnoreProperties(value = {"matches", "players"})
     @ManyToOne
     @JoinColumn(name = "season_id", nullable = false)
     private Season season;

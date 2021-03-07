@@ -33,7 +33,7 @@ public class Player {
     @Column(name = "points")
     private int points;
 
-    @JsonIgnoreProperties(value = "players")
+    @JsonIgnoreProperties(value = {"players", "matches"})
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
@@ -42,6 +42,16 @@ public class Player {
             inverseJoinColumns = {@JoinColumn(name = "team_id", nullable = false, updatable = false)}
     )
     private List<Team> teams;
+
+    @JsonIgnoreProperties(value = {"players", "matches"})
+    @ManyToMany
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @JoinTable(
+            name = "seasons_players",
+            joinColumns = {@JoinColumn(name = "player_id" , nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "season_id", nullable = false, updatable = false)}
+    )
+    private List<Season> seasons;
 
 
 
@@ -54,6 +64,8 @@ public class Player {
         this.gamesDrawn = 0;
         this.points = 0;
         this.teams = new ArrayList<Team>();
+        this.seasons = new ArrayList<Season>();
+
     }
     public Player(){
 
@@ -120,5 +132,13 @@ public class Player {
     }
     public void setTeams(List<Team> teams) {
         this.teams = teams;
+    }
+
+    public List<Season> getSeasons() {
+        return seasons;
+    }
+
+    public void setSeasons(List<Season> seasons) {
+        this.seasons = seasons;
     }
 }

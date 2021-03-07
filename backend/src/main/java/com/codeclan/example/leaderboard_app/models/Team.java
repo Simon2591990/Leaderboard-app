@@ -24,7 +24,7 @@ public class Team {
     @Column(name = "goals")
     private int goals;
 
-    @JsonIgnoreProperties(value = "teams")
+    @JsonIgnoreProperties(value = {"teams", "seasons"})
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     @JoinTable(
