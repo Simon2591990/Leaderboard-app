@@ -18,7 +18,7 @@ public class SeasonController {
 
     @GetMapping(value = "/seasons")
     public ResponseEntity<List<Season>> getAllSeasons(){
-        return new ResponseEntity<>(seasonRepository.findAll(), HttpStatus.I_AM_A_TEAPOT);
+        return new ResponseEntity<>(seasonRepository.findAll(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/seasons/{id}")

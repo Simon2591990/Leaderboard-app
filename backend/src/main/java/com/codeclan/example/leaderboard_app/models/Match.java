@@ -67,7 +67,14 @@ public class Match {
     public void setSeason(Season season) {
         this.season = season;
     }
+
     public void addTeam(Team team){
         this.teams.add(team);
+    }
+
+    public void addTeam(ArrayList<Team>teams){
+        for (Team team : teams){
+            this.addTeam(team);
+        }
     }
 }
