@@ -1,9 +1,6 @@
 package com.codeclan.example.leaderboard_app.controllers;
 
-import com.codeclan.example.leaderboard_app.models.Match;
-import com.codeclan.example.leaderboard_app.models.Player;
-import com.codeclan.example.leaderboard_app.models.Season;
-import com.codeclan.example.leaderboard_app.models.Team;
+import com.codeclan.example.leaderboard_app.models.*;
 import com.codeclan.example.leaderboard_app.repositories.MatchRepository;
 import com.codeclan.example.leaderboard_app.repositories.SeasonRepository;
 import com.codeclan.example.leaderboard_app.repositories.TeamRepository;
@@ -26,6 +23,7 @@ public class SeasonController {
     MatchRepository matchRepository;
     @Autowired
     TeamRepository teamRepository;
+    TeamNameGenerator teamNameGenerator = new TeamNameGenerator();
 
     @GetMapping(value = "/seasons")
     public ResponseEntity<List<Season>> getAllSeasons(){
@@ -74,8 +72,10 @@ public class SeasonController {
         Collections.shuffle(players);
         List<Player> team1Players = players.subList(0,5);
         List<Player> team2Players = players.subList(5,10);
-        Team team1 = new Team ("Team 1",match);
-        Team team2 = new Team ("Team 2",match);
+        String team1Name = teamNameGenerator.generateName();
+        String team2Name = teamNameGenerator.generateName();
+        Team team1 = new Team (team1Name,match);
+        Team team2 = new Team (team2Name,match);
         team1.setPlayers(team1Players);
         team2.setPlayers(team2Players);
         teamRepository.save(team1);
