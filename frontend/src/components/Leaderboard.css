@@ -1,0 +1,19 @@
+.leaderboard-table{
+    border-spacing: 0;
+    margin: 10px;
+    background-color: #f5f3f4;
+  }
+
+.leaderboard-table-header {
+    text-align: left;
+    background-color: #a4161a;
+    color: #ffffff;
+}
+
+.leaderboard-table-row:nth-child(even) {
+    background-color: #d3d3d3;
+}
+
+.leaderboard-table td, .leaderboard-table th {
+    padding: 8px;
+}

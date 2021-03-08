@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import './Leaderboard.css';
 import Request from '../helpers/Request';
 
 const Leaderboard = ({players, currentSeasonName}) => {
@@ -17,7 +18,8 @@ const Leaderboard = ({players, currentSeasonName}) => {
 
     const playerNodes = players.map((player, index) => {
         return(
-                <tr key={player.id}>
+                <tr key={player.id}
+                className="leaderboard-table-row">
                     <td>{index + 1}  {assignMedal(index)}</td>
                     <td>{player.name}</td>
                     <td>{player.gamesPlayed}</td>
@@ -34,7 +36,7 @@ const Leaderboard = ({players, currentSeasonName}) => {
         <h2>Leaderboard - {currentSeasonName}</h2>
         <table className="leaderboard-table">
                     <thead>
-                        <tr>
+                        <tr className="leaderboard-table-header">
                             <th>Postition</th>
                             <th>Player</th>
                             <th>Played</th>
