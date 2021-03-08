@@ -17,8 +17,7 @@ const Leaderboard = ({players, currentSeasonName}) => {
 
     const playerNodes = players.map((player, index) => {
         return(
-            <>
-                <tr>
+                <tr key={player.id}>
                     <td>{index + 1}  {assignMedal(index)}</td>
                     <td>{player.name}</td>
                     <td>{player.gamesPlayed}</td>
@@ -27,15 +26,13 @@ const Leaderboard = ({players, currentSeasonName}) => {
                     <td>{player.gamesLost}</td>
                     <td>{player.points}</td>
                 </tr>
-
-            </>
         )
     })
 
     return(
         <>
         <h2>Leaderboard - {currentSeasonName}</h2>
-        <table class="leaderboard-table">
+        <table className="leaderboard-table">
                     <thead>
                         <tr>
                             <th>Postition</th>
