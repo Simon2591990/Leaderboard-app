@@ -37,4 +37,30 @@
   }
 }
 
+/* App layout */
 
+#root{
+  display: grid;
+  grid-template-areas:
+  "header header"
+  "nav nav"
+  "main leaderboard";
+}
+
+#header{
+  grid-area: header;
+  justify-self: center;
+}
+
+#nav-bar{
+  grid-area: nav;
+  justify-self: center;
+}
+
+#leaderboard{
+  grid-area: leaderboard;
+}
+
+#main-content{
+  grid-area: main;
+}
