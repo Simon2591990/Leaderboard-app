@@ -60,7 +60,10 @@ function App() {
       <>
       <Header title="Tournament App"/>
       <NavBar/>
-      <Leaderboard players={players}/>
+      <Leaderboard
+      players={players}
+      currentSeasonName={currentSeason.name}
+      />
       <MainContent seasons={seasons} currentSeason={currentSeason}/>
     </>
     </Router>

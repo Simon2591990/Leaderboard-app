@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Request from '../helpers/Request';
 
-const Leaderboard = ({players}) => {
+const Leaderboard = ({players, currentSeasonName}) => {
 
     const playerNodes = players.map((player, index) => {
         return(
@@ -12,7 +12,7 @@ const Leaderboard = ({players}) => {
 
     return(
         <>
-        <h2>Leaderboard</h2>
+        <h2>Leaderboard - {currentSeasonName}</h2>
             {playerNodes}
         </>
     )
