@@ -20,7 +20,7 @@ const CreateMatch = ({currentSeason}) => {
 
     const createMatch = () => {
         let request = new Request();
-
+        if (match.gameNumber < currentSeason.totalMatches){
         if (scoreSubmitted === true){
         request.get(createMatchUrl)
         .then(data => setMatch(data))
@@ -29,6 +29,7 @@ const CreateMatch = ({currentSeason}) => {
         setTeam2Score(0)
         setScoreSubmitted(false)
         }
+    }
     }
 
     const submitScores = (event) => {
@@ -58,21 +59,23 @@ const CreateMatch = ({currentSeason}) => {
             <>
         <h1>Current Match</h1>
             <button onClick={createMatch}>New {currentSeason.name} Match</button>
-        {/* <h3>Match Number: {match.gameNumber}</h3> */}
+            <button onClick={submitScores}>Submit Score</button>
+        <h3>Match Number: {match.gameNumber} / {currentSeason.totalMatches}</h3>
         <div>
             <h2>{match.teams[0].name} </h2>
             <ul>
                 {team1Nodes}
             </ul>
+            <label>Goals: </label>
+            <input onChange={handleTeeam1Score} type="number" min="0"  value={team1Score}></input>
             <h2>{match.teams[1].name}</h2>
             <ul>
                 {team2Nodes}
             </ul>
+            <label>Goals: </label>
+            <input onChange={handleTeeam2Score} type="number"  min="0" value={team2Score}></input>
         </div>
         
-            <input onChange={handleTeeam1Score} type="number" min="0"  value={team1Score}></input>
-            <input onChange={handleTeeam2Score} type="number"  min="0" value={team2Score}></input>
-            <button onClick={submitScores}>Submit Score</button>
         </>
 
     )
