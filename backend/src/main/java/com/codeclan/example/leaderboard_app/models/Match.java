@@ -85,7 +85,7 @@ public class Match {
             this.teams.get(0).setResult("win");
             this.teams.get(1).setResult("loss");
         }
-        if (team1Score < team2Score){
+        else if (team1Score < team2Score){
             this.teams.get(0).setResult("loss");
             this.teams.get(1).setResult("win");
         }
