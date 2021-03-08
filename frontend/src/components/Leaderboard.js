@@ -3,11 +3,23 @@ import Request from '../helpers/Request';
 
 const Leaderboard = ({players, currentSeasonName}) => {
 
+    const assignMedal = (index) => {
+        if (index === 0) {
+            return <>&#129351;</>
+        } else if (index === 1) {
+            return <>&#129352;</>
+        } else if (index === 2) {
+            return <>&#129353;</>
+        } else {
+            return <></>
+        }
+    }
+
     const playerNodes = players.map((player, index) => {
         return(
             <>
                 <tr>
-                    <td>{index + 1}</td>
+                    <td>{index + 1}  {assignMedal(index)}</td>
                     <td>{player.name}</td>
                     <td>{player.gamesPlayed}</td>
                     <td>{player.gamesWon}</td>
@@ -19,7 +31,6 @@ const Leaderboard = ({players, currentSeasonName}) => {
             </>
         )
     })
-
 
     return(
         <>
