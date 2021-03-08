@@ -14,17 +14,42 @@ const CreateMatch = ({currentSeason}) => {
         .then(data => setMatch(data))
     }
 
+    const team1Nodes = match.teams[0].players.map((player, index) => {
+        return(
+            <li key={player.id} >{player.name}</li>
+        )
+    })
+    const team2Nodes = match.teams[1].players.map((player, index) => {
+        return(
+            <li key={player.id} >{player.name}</li>
+        )
+    })
+
     
         return(
             <>
         <h1>Current Match</h1>
-        {/* <h3>Match Number: {match.gameNumber}</h3> */}
             <button onClick={createMatch}>New {currentSeason.name} Match</button>
+        {/* <h3>Match Number: {match.gameNumber}</h3> */}
+        <div>
+            <h2>{match.teams[0].name}</h2>
+            <ul>
+                {team1Nodes}
+            </ul>
+            <h2>{match.teams[1].name}</h2>
+            <ul>
+                {team2Nodes}
+            </ul>
+        </div>
         </>
 
     )
 }
 
-
 export default CreateMatch;
+
+
+
+// /api/matches/{id}/{team1Score}/{team2Score}
+
 

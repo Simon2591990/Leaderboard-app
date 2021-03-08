@@ -77,4 +77,30 @@ public class Match {
             this.addTeam(team);
         }
     }
+
+    public void handleResults(int team1Score, int team2Score){
+        this.teams.get(0).setGoals(team1Score);
+        this.teams.get(1).setGoals(team2Score);
+        if (team1Score > team2Score){
+            this.teams.get(0).setResult("win");
+            this.teams.get(1).setResult("loss");
+        }
+        if (team1Score < team2Score){
+            this.teams.get(0).setResult("loss");
+            this.teams.get(1).setResult("win");
+        }
+        else {
+            this.teams.get(0).setResult("draw");
+            this.teams.get(1).setResult("draw");
+
+        }
+        for (Team team : this.teams){
+            for (Player player : team.getPlayers()){
+                player.handleResult(team.getResult());
+            }
+        }
+
+
+
+    }
 }

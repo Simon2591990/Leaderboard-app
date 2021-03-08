@@ -141,4 +141,18 @@ public class Player {
     public void setSeasons(List<Season> seasons) {
         this.seasons = seasons;
     }
+    public void handleResult(String result){
+        if (result == "win"){
+            this.gamesPlayed += 1;
+            this.gamesWon += 1;
+            this.points += 3;
+        }if (result == "draw"){
+            this.gamesPlayed += 1;
+            this.gamesDrawn += 1;
+            this.points += 1;
+        }if (result == "loss"){
+            this.gamesPlayed += 1;
+            this.gamesLost += 1;
+        }
+    }
 }

@@ -52,5 +52,14 @@ public class MatchController {
         return new ResponseEntity<> (null, HttpStatus.OK);
     }
 
+    @PutMapping(value = "/matches/{id}/{team1Score}/{team2Score}")
+    public ResponseEntity<Match> updateResults(@PathVariable Long id, @PathVariable Integer team1Score, @PathVariable Integer team2Score){
+        Optional<Match> matchToUpdateOptional = matchRepository.findById(id);
+        Match matchToUpdate = matchToUpdateOptional.get();
 
+        matchToUpdate.handleResults(team1Score, team2Score);
+        matchRepository.save(matchToUpdate);
+
+        return new ResponseEntity<>(matchToUpdate, HttpStatus.OK);
+    }
 }
