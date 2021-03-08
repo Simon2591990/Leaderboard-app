@@ -13,7 +13,7 @@ const Leaderboard = ({players}) => {
     return(
         <>
         <h5>Leaderboard</h5>
-        {playerNodes}
+        {/* {playerNodes} */}
         </>
     )
 }

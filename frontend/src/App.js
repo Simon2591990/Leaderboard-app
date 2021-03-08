@@ -15,6 +15,10 @@ function App() {
 
   const [players, setPlayers] = useState([]);
 
+  const [currentSeason, setCurrentSeason] = useState([])
+
+  const [isLoaded, setIsLoaded] = useState(false)
+
     
     const getSeasons = () => {
         const request = new Request();
@@ -23,13 +27,23 @@ function App() {
         .then(data => {
           setSeasons(data)
           setPlayers(data[data.length -1].players)
+          setCurrentSeason(data[data.length -1])
+          
         })
+        .then(() => setIsLoaded(true))
     }
     
     useEffect(() => {
        getSeasons() 
     }, [])
 
+  
+
+  if (isLoaded === false){
+    return(
+      <p>Loading</p>
+    )
+  }
 
   return (
     <Router>
@@ -37,7 +51,7 @@ function App() {
       <Header title="Tournament App"/>
       <NavBar/>
       <Leaderboard players={players}/>
-      <MainContent/>
+      <MainContent seasons={seasons} currentSeason={currentSeason}/>
     </>
     </Router>
     

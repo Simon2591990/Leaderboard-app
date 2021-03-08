@@ -64,7 +64,7 @@ public class SeasonController {
         return new ResponseEntity<> (null, HttpStatus.OK);
     }
 
-    @GetMapping (value = "/seasons/{id}/create_match")
+    @GetMapping (value = "/seasons/{id}/new_match")
     public ResponseEntity<Match> createMatch(@PathVariable Long id){
         Season seasonFound = seasonRepository.findById(id).get();
         int newMatchNumber = seasonFound.getMatches().size() + 1;

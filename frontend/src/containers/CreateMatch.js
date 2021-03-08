@@ -1,30 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+import {Link} from "react-router-dom"; 
+import Request from '../helpers/Request';
 
-const CreateMatch = () => {
-    return(
-        <h1>CreateMatch</h1>
+const CreateMatch = ({currentSeason}) => {
+
+    const createMatchUrl = "/api/seasons/" + currentSeason.id + "/new_match"
+    const [match, setMatch] = useState(currentSeason.matches[currentSeason.matches.length -1]) 
+
+    const createMatch = () => {
+        let request = new Request();
+
+        request.get(createMatchUrl)
+        .then(data => setMatch(data))
+    }
+
+    
+        return(
+            <>
+        <h1>Current Match</h1>
+        {/* <h3>Match Number: {match.gameNumber}</h3> */}
+            <button onClick={createMatch}>New {currentSeason.name} Match</button>
+        </>
+
     )
 }
 
 
 export default CreateMatch;
 
-
-    // ('/season{id}') newMatch&Teams
-    // Get season
-    // Call function to determine new match number
-
-    // Create match
-
-    // Create 2 team objects
-
-    // Get players from season and randomise/shuffle order
-    // Create 2 team lists
-    // Assign players to team lists
-
-    // Add team lists to teams
-    // Add teams to match
-
-    // save teams and match using repositories
-
-    // return match
