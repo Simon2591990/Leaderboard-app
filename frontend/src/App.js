@@ -37,6 +37,16 @@ function App() {
        getSeasons() 
     }, [])
 
+    useEffect(() => {
+      sortPlayersByPoints()
+    }, [players])
+
+    const sortPlayersByPoints = () => {
+      players.sort((player1, player2) => {
+        return player2.points - player1.points;
+      })
+    }
+
   
 
   if (isLoaded === false){
