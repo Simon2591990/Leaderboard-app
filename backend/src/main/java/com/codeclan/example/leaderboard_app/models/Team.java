@@ -100,7 +100,7 @@ public class Team {
     public void addPlayer(Player player){
         this.players.add(player);
     }
-    public void addPlayer(ArrayList<Player> players){
+    public void addPlayer(List<Player> players){
         for (Player player : players){
             this.addPlayer(player);
         }
