@@ -14,7 +14,10 @@ const MainContent = ({seasons, currentSeason}) => {
                 path="/create_match"
                 render={() => <CreateMatch currentSeason={currentSeason}/>} 
                 />
-            <Route path="/create_season" component={CreateSeason}/>
+            <Route 
+                path="/create_season" 
+                render={() => <CreateSeason seasons={seasons}/>} 
+                />
             <Route path="/season_results" component={SeasonResults}/>
             <Route path="/add_players" component={NewPlayers}/>
             
