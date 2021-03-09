@@ -66,15 +66,16 @@ const handleSubmitNewSeason = () => {
         totalMatches: numberOfGames,
         players: selectedPlayers
     })
-
-    const request = new Request();
-    request.post("api/seasons", newSeason)
-
-    setNewSeason({
-        name: "",
-        totalMatches: 0,
-        players: []
-    })
+    if (newSeason.name !== "" && newSeason.totalMatches != 0 && newSeason.players.length !== 0) {
+        const request = new Request();
+        request.post("api/seasons", newSeason)
+        
+        setNewSeason({
+            name: "",
+            totalMatches: 0,
+            players: []
+        })
+    }
 }
 
 if (selectedPlayers.length < 10){
