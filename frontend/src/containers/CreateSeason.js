@@ -49,13 +49,13 @@ if (selectedPlayers.length < 10){
         <h1>CreateSeason</h1>
 
         <form onSubmit={handleAddPlayerToTheList}>
-            <label>  List of registered players: 
+            {/* <label>  List of registered players:  */}
                
-            <select name="select_players"  value=" " onChange={handleAddPlayerToTheList}>
+            <select name="select_players"  value="I am a teapot " onChange={handleAddPlayerToTheList}>
                 <option>Select 10 players from this list</option>
                 {allPlayerNodes}
             </select>
-            </label>
+            {/* </label> */}
         </form>
         
         <ul>
