@@ -48,7 +48,7 @@ function App() {
   return (
     <Router>
       <>
-      <Header title="Tournament App"/>
+      <Header  title="Tournament App"/>
       <NavBar/>
       <Leaderboard players={players}/>
       <MainContent seasons={seasons} currentSeason={currentSeason}/>
