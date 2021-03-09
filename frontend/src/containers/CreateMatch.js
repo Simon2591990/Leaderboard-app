@@ -35,10 +35,12 @@ const CreateMatch = ({currentSeason}) => {
     const submitScores = (event) => {
         event.preventDefault()
         let request = new Request();
-        if (scoreSubmitted === false){
-            const submitScoreUrl = `/api/matches/${match.id}/${team1Score}/${team2Score}`
-            request.put(submitScoreUrl)
-            setScoreSubmitted(true)
+        if (match.gameNumber < currentSeason.totalMatches){
+            if (scoreSubmitted === false){
+                const submitScoreUrl = `/api/matches/${match.id}/${team1Score}/${team2Score}`
+                request.put(submitScoreUrl)
+                setScoreSubmitted(true)
+            }
         }
 
     }
