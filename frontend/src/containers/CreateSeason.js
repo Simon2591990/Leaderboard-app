@@ -18,11 +18,8 @@ useEffect(() => {
     getAllPlayers() 
  }, [])
 
-const allPlayerNodes = allPlayers.map((player, index) => {
-    
-
+const allPlayerNodes = allPlayers.map((player, index) => {  
     return( 
-        
           <option  value={index}>{player.name}</option>
         )  
 })
@@ -35,12 +32,17 @@ const selectedPlayersNodes = selectedPlayers.map((player, index) => {
 
 const handleAddPlayerToTheList = (event) => {
     event.preventDefault()
+    //add selected player to selectedPlayers state
     setSelectedPlayers([...selectedPlayers,allPlayers[event.target.value]])
+    //remove selected player from allPlayers state
     const newAllPlayers = allPlayers.filter(function(player){
         return player.id !== (allPlayers[event.target.value].id)
     })
     setAllPlayers(newAllPlayers)
 }
+
+
+if (selectedPlayers.length < 10){
 
     return(
         <>
@@ -55,12 +57,22 @@ const handleAddPlayerToTheList = (event) => {
             </select>
             </label>
         </form>
+        
         <ul>
             {selectedPlayersNodes}
         </ul>
-        
         </>
     )
+    } else
+        return(
+            <>
+            <h1>CreateSeason</h1>
+            <button>Create New Season</button>
+            <ul>
+                {selectedPlayersNodes}
+            </ul>
+            </>
+        )
 }
 
 
