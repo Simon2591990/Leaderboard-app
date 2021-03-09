@@ -37,6 +37,16 @@ function App() {
        getSeasons() 
     }, [])
 
+    useEffect(() => {
+      sortPlayersByPoints()
+    }, [players])
+
+    const sortPlayersByPoints = () => {
+      players.sort((player1, player2) => {
+        return player2.points - player1.points;
+      })
+    }
+
   
 
   if (isLoaded === false){
@@ -48,11 +58,22 @@ function App() {
   return (
     <Router>
       <>
-      <Header  title="Tournament App"/>
-      <NavBar/>
-      <Leaderboard players={players}/>
-      <MainContent seasons={seasons} currentSeason={currentSeason}/>
-    </>
+      <div id="header">
+        <Header title="Tournament App"/>
+      </div>
+      <div id="nav-bar">
+        <NavBar/>
+      </div>
+      <div id="leaderboard">
+        <Leaderboard
+        players={players}
+        currentSeasonName={currentSeason.name}
+        />
+      </div>
+      <div id="main-content">
+        <MainContent seasons={seasons} currentSeason={currentSeason}/>
+      </div>
+      </>
     </Router>
     
   );
