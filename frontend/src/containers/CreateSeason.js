@@ -23,7 +23,7 @@ const allPlayerNodes = allPlayers.map((player, index) => {
 
     return( 
         
-          <option key={player.id} value={player.id}>{player.name}</option>
+          <option  value={index}>{player.name}</option>
         )  
 })
 
@@ -36,6 +36,10 @@ const selectedPlayersNodes = selectedPlayers.map((player, index) => {
 const handleAddPlayerToTheList = (event) => {
     event.preventDefault()
     setSelectedPlayers([...selectedPlayers,allPlayers[event.target.value]])
+    const newAllPlayers = allPlayers.filter(function(player){
+        return player.id !== (allPlayers[event.target.value].id)
+    })
+    setAllPlayers(newAllPlayers)
 }
 
     return(
@@ -43,8 +47,10 @@ const handleAddPlayerToTheList = (event) => {
         <h1>CreateSeason</h1>
 
         <form onSubmit={handleAddPlayerToTheList}>
-            <label>  Select 10 players from this list:  
-            <select name="select_players"  value="Select 10 players from this list:  " onChange={handleAddPlayerToTheList}>
+            <label>  List of registered players: 
+               
+            <select name="select_players"  value=" " onChange={handleAddPlayerToTheList}>
+                <option>Select 10 players from this list</option>
                 {allPlayerNodes}
             </select>
             </label>
