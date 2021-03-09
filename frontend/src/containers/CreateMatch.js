@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {Link} from "react-router-dom"; 
 import Request from '../helpers/Request';
 
-const CreateMatch = ({currentSeason}) => {
+const CreateMatch = ({currentSeason, incrementDataCounter}) => {
 
     const createMatchUrl = "/api/seasons/" + currentSeason.id + "/new_match"
     const [match, setMatch] = useState(currentSeason.matches[currentSeason.matches.length -1]) 
@@ -40,6 +40,7 @@ const CreateMatch = ({currentSeason}) => {
                 const submitScoreUrl = `/api/matches/${match.id}/${team1Score}/${team2Score}`
                 request.put(submitScoreUrl)
                 setScoreSubmitted(true)
+                incrementDataCounter();
             }
         }
 

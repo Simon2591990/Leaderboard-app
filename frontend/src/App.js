@@ -8,6 +8,12 @@ import {BrowserRouter as Router}  from 'react-router-dom';
 import Request from './helpers/Request';
 
 
+// in App, create state for newDataCounter (0)
+// Method to update state for newDataCounter
+// Pass method as prop to components
+// newDataCounter to trigger useEffect
+
+
 
 function App() {
 
@@ -18,6 +24,7 @@ function App() {
   const [currentSeason, setCurrentSeason] = useState([])
 
   const [isLoaded, setIsLoaded] = useState(false)
+  const [newDataCounter, setNewDataCounter] = useState(0)
 
     
     const getSeasons = () => {
@@ -35,11 +42,15 @@ function App() {
     
     useEffect(() => {
        getSeasons() 
-    }, [])
+    }, [newDataCounter])
 
     useEffect(() => {
       sortPlayersByPoints()
     }, [players])
+
+    const incrementDataCounter = () => {
+      setNewDataCounter(newDataCounter + 1)
+    }
 
     const sortPlayersByPoints = () => {
       players.sort((player1, player2) => {
@@ -71,7 +82,7 @@ function App() {
         />
       </div>
       <div id="main-content">
-        <MainContent seasons={seasons} currentSeason={currentSeason}/>
+        <MainContent seasons={seasons} currentSeason={currentSeason} incrementDataCounter={incrementDataCounter}/>
       </div>
       </>
     </Router>
