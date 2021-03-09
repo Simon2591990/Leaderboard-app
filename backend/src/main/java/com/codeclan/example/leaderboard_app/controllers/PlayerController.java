@@ -46,6 +46,11 @@ public class PlayerController {
         playerToUpdate.setPoints(player.getPoints());
         playerToUpdate.setTeams(player.getTeams());
         playerToUpdate.setSeasons(player.getSeasons());
+        playerToUpdate.setTotalGamesPlayed(player.getTotalGamesPlayed());
+        playerToUpdate.setTotalGamesWon(player.getTotalGamesWon());
+        playerToUpdate.setTotalGamesLost(player.getTotalGamesLost());
+        playerToUpdate.setTotalGamesDrawn(player.getTotalGamesDrawn());
+        playerToUpdate.setTotalPoints(player.getTotalPoints());
 
         playerRepository.save(playerToUpdate);
         return new ResponseEntity<Player>(playerToUpdate, HttpStatus.OK);
