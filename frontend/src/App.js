@@ -73,7 +73,7 @@ function App() {
       <div id="main-content">
         <MainContent seasons={seasons} currentSeason={currentSeason}/>
       </div>
-    </>
+      </>
     </Router>
     
   );
