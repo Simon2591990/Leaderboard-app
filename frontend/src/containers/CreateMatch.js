@@ -9,7 +9,6 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
 
     const [team1Score, setTeam1Score] = useState(0)
     const [team2Score, setTeam2Score] = useState(0)
-    const [scoreSubmitted, setScoreSubmitted] = useState(false)
 
     const handleTeeam1Score = (event) => {
         setTeam1Score(event.target.value)
@@ -21,29 +20,29 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
     const createMatch = () => {
         let request = new Request();
         if (match.gameNumber < currentSeason.totalMatches){
-        if (scoreSubmitted === true){
-        request.get(createMatchUrl)
-        .then(data => setMatch(data))
+            if (currentSeason.matches[currentSeason.matches.length-1].teams[0].result !== ""){
+                request.get(createMatchUrl)
+                .then(data => setMatch(data))
 
-        setTeam1Score(0)
-        setTeam2Score(0)
-        setScoreSubmitted(false)
+                setTeam1Score(0)
+                setTeam2Score(0)
+
+                incrementDataCounter();
+            }
         }
-    }
     }
 
     const submitScores = (event) => {
         event.preventDefault()
         let request = new Request();
-        if (match.gameNumber < currentSeason.totalMatches){
-            if (scoreSubmitted === false){
-                const submitScoreUrl = `/api/matches/${match.id}/${team1Score}/${team2Score}`
-                request.put(submitScoreUrl)
-                setScoreSubmitted(true)
-                incrementDataCounter();
+        if (currentSeason.matches[currentSeason.matches.length-1].teams[0].result === ""){
+            if (match.gameNumber < currentSeason.totalMatches){
+                    const submitScoreUrl = `/api/matches/${match.id}/${team1Score}/${team2Score}`
+                    request.put(submitScoreUrl)
+
+                    incrementDataCounter();
             }
         }
-
     }
 
     const team1Nodes = match.teams[0].players.map((player, index) => {

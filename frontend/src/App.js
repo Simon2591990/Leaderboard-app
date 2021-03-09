@@ -8,13 +8,6 @@ import {BrowserRouter as Router}  from 'react-router-dom';
 import Request from './helpers/Request';
 
 
-// in App, create state for newDataCounter (0)
-// Method to update state for newDataCounter
-// Pass method as prop to components
-// newDataCounter to trigger useEffect
-
-
-
 function App() {
 
   const [seasons, setSeasons] = useState([]);
@@ -38,6 +31,8 @@ function App() {
           
         })
         .then(() => setIsLoaded(true))
+
+        console.log("data fetched")
     }
     
     useEffect(() => {
@@ -46,7 +41,7 @@ function App() {
 
     useEffect(() => {
       sortPlayersByPoints()
-    }, [players])
+    }, [players, newDataCounter])
 
     const incrementDataCounter = () => {
       setNewDataCounter(newDataCounter + 1)
