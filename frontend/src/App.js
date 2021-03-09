@@ -33,8 +33,10 @@ function App() {
     
     useEffect(() => {
        getSeasons() 
-       sortPlayersByPoints()
     }, [newDataCounter])
+    useEffect(() => {
+      sortPlayersByPoints()
+   }, [players])
 
     const incrementDataCounter = () => {
       setNewDataCounter(newDataCounter + 1)
