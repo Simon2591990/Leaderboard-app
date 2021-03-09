@@ -19,7 +19,6 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [newDataCounter, setNewDataCounter] = useState(0)
 
-    
     const getSeasons = () => {
         const request = new Request();
 
@@ -28,20 +27,14 @@ function App() {
           setSeasons(data)
           setPlayers(data[data.length -1].players)
           setCurrentSeason(data[data.length -1])
-          
         })
         .then(() => setIsLoaded(true))
-
-        console.log("data fetched")
     }
     
     useEffect(() => {
        getSeasons() 
+       sortPlayersByPoints()
     }, [newDataCounter])
-
-    useEffect(() => {
-      sortPlayersByPoints()
-    }, [players, newDataCounter])
 
     const incrementDataCounter = () => {
       setNewDataCounter(newDataCounter + 1)
@@ -77,7 +70,11 @@ function App() {
         />
       </div>
       <div id="main-content">
-        <MainContent seasons={seasons} currentSeason={currentSeason} incrementDataCounter={incrementDataCounter}/>
+        <MainContent 
+        seasons={seasons}
+        currentSeason={currentSeason}
+        incrementDataCounter={incrementDataCounter}
+        />
       </div>
       </>
     </Router>
