@@ -6,6 +6,7 @@ import {
     AccordionItemButton,
     AccordionItemPanel,
 } from 'react-accessible-accordion';
+import './MatchDetails.css';
 
 const MatchDetails = ({match}) => {
     const team1PlayerNodes = match.teams[0].players.map((player, index) => {
