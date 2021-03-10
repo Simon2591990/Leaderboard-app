@@ -2,6 +2,7 @@ package com.codeclan.example.leaderboard_app.controllers;
 
 import com.codeclan.example.leaderboard_app.models.*;
 import com.codeclan.example.leaderboard_app.repositories.MatchRepository;
+import com.codeclan.example.leaderboard_app.repositories.PlayerRepository;
 import com.codeclan.example.leaderboard_app.repositories.SeasonRepository;
 import com.codeclan.example.leaderboard_app.repositories.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class SeasonController {
     MatchRepository matchRepository;
     @Autowired
     TeamRepository teamRepository;
+    @Autowired
+    PlayerRepository playerRepository;
+
     TeamNameGenerator teamNameGenerator = new TeamNameGenerator();
 
     @GetMapping(value = "/seasons")
@@ -37,6 +41,12 @@ public class SeasonController {
 
     @PostMapping(value = "/seasons")
     public ResponseEntity<Season> postSeasons(@RequestBody Season season){
+        List<Player> players = season.getPlayers();
+        for (Player player : players){
+            player.resetSeasonResults();
+            playerRepository.save(player);
+        }
+
         seasonRepository.save(season);
         return new ResponseEntity<>(season, HttpStatus.CREATED);
     }
@@ -69,6 +79,7 @@ public class SeasonController {
         Match match = new Match(newMatchNumber,seasonFound);
         matchRepository.save(match);
         List<Player> players = seasonFound.getPlayers();
+
         Collections.shuffle(players);
         List<Player> team1Players = players.subList(0,5);
         List<Player> team2Players = players.subList(5,10);

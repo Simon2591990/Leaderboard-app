@@ -61,22 +61,29 @@ const handleGameNumber = (event) => {
 }
 
 const handleSubmitNewSeason = () => {
+    const request = new Request();
+    
+    
     setNewSeason({
         name: seasonName,
         totalMatches: numberOfGames,
         players: selectedPlayers
     })
     if (newSeason.name !== "" && newSeason.totalMatches != 0 && newSeason.players.length !== 0) {
-        const request = new Request();
         request.post("api/seasons", newSeason)
         
+        
+
         setNewSeason({
             name: "",
             totalMatches: 0,
             players: []
         })
     }
+
 }
+
+
 
 if (selectedPlayers.length < 10){
 
