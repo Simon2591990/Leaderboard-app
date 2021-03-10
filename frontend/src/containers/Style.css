@@ -1,6 +1,5 @@
 .button {
-    list-style: none;
-  
+  list-style: none;
   background-color: white; 
   border-style: solid;
   border-color:#0b2d3148;
@@ -15,9 +14,13 @@
   border-radius: 30px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.044), 0 3px 20px 0 rgba(0, 0, 0, 0.064);
   background-color: rgb(62, 136, 91);
-}
+  margin-bottom: 2%;}
 .button:hover {
   background-color: rgb(134, 32, 9);
+}
+.button:active {
+	position:relative;
+	top:1px;
 }
 
 .input {
@@ -37,18 +40,29 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%;
+  width: 90%;
 }
 #createLists {
 display: flex;
 justify-content: space-around;
-
+border: solid;
+border-color: rgb(247, 243, 227);
+height: 30em;
+}
+#createLists > div {
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 100%;
+border: solid;
+border-color: rgb(247, 243, 227);
 }
 
 
 #createLists > div >ul{
   display: flex;
   flex-direction: column;
+  align-items: center;
   list-style: none;
 
   }
@@ -63,6 +77,8 @@ justify-content: space-around;
   margin: 2%;
   /* text-shadow: 2px 2px rgba(19, 41, 17, 0.399); */
   font-weight: 900;
+  font-size: 150%;
+
 }
 .teams{
   display: flex;
