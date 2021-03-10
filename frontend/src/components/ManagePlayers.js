@@ -38,8 +38,10 @@ const ManagePlayers = () => {
     }
     const deletePlayer = (player) => {
         const request = new Request();
-        request.delete(`api/players/${player.id}`)
-        .then(() => getAllPlayers())
+        if (player.seasons.length === 0 || player.seasons[player.seasons.length -1].completed){
+            request.delete(`api/players/${player.id}`)
+            .then(() => getAllPlayers())
+        }
         
 
 

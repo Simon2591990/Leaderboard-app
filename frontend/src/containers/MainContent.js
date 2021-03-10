@@ -18,7 +18,8 @@ const MainContent = ({seasons, currentSeason, incrementDataCounter}) => {
                     path="/create_season" 
                     render={() => <CreateSeason currentSeason={currentSeason} incrementDataCounter={incrementDataCounter}/>} 
                     />
-                <Route path="/season_results" component={SeasonResults}/>
+                <Route path="/season_results" 
+                    render={() => <SeasonResults seasons={seasons} />}/>
                 <Route path="/players" component={ManagePlayers}/>
                 
             </Switch>
