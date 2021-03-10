@@ -39,7 +39,7 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
 
         let request = new Request();
         if (currentSeason.matches[currentSeason.matches.length-1].teams[0].result === ""){
-            if (!match.season.completed){
+            if (!match.gameNumber <= currentSeason.totalMatches){
                     const submitScoreUrl = `/api/matches/${match.id}/${team1Score}/${team2Score}`
                     request.put(submitScoreUrl)
                     .then(() => incrementDataCounter())

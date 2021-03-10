@@ -14,7 +14,7 @@ const SeasonResults = ({seasons}) => {
     return(
         <>
             <h1>Season Results</h1>
-            <p>{matchNodes}</p>
+            {matchNodes}
         </>
 
     )
