@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {Link} from "react-router-dom"; 
 import Request from '../helpers/Request';
 
+
 const CreateMatch = ({currentSeason, incrementDataCounter}) => {
 
     const createMatchUrl = "/api/seasons/" + currentSeason.id + "/new_match"
@@ -27,7 +28,6 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
                 request.get(createMatchUrl)
                 .then(data => setMatch(data))
                 .then(() => incrementDataCounter())
-
                 setTeam1Score(0)
                 setTeam2Score(0)
             }
@@ -46,6 +46,8 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
             }
         }
     }
+
+   
         if (!match) {
             return(
                 <>
@@ -85,6 +87,7 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
                         <h2>{match.teams[1].name}</h2>
                         <ul>
                             {team2Nodes}
+                            
                         </ul>
                         <label>Goals: </label>
                         <input onChange={handleTeeam2Score} type="number"  min="0" value={team2Score}></input>

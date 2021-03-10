@@ -42,10 +42,13 @@
 
 #root{
   display: grid;
+  grid-template-columns:50% 50%;
   grid-template-areas:
   "header header"
   "nav nav"
   "main leaderboard";
+  position: sticky;
+
 }
 
 #header{
@@ -60,6 +63,12 @@
 
 #leaderboard{
   grid-area: leaderboard;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  position: sticky;
+  
+
 }
 
 #main-content{
