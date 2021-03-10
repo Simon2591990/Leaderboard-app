@@ -30,6 +30,9 @@
     justify-content: space-between;
     align-items: baseline;
 }
+.accordion__button:hover{
+    background-color: #3E885B;
+}
 .accordion__button:after {
     display: inline-block;
     content: '';
@@ -48,8 +51,8 @@
 
 .accordion__panel {
     padding: 20px;
-    animation: fadeIn ease 10s;
-    -webkit-animation: fadeIn ease 10s;
+    animation: fadeIn ease 1s;
+    -webkit-animation: fadeIn ease 1s;
 
     background-color: #3E885B;
     color: #F7F3E3;
