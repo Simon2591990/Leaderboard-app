@@ -56,6 +56,9 @@ public class MatchController {
     public ResponseEntity<Match> updateResults(@PathVariable Long id, @PathVariable Integer team1Score, @PathVariable Integer team2Score){
         Optional<Match> matchToUpdateOptional = matchRepository.findById(id);
         Match matchToUpdate = matchToUpdateOptional.get();
+        if (matchToUpdate.getSeason().getTotalMatches() == matchToUpdate.getGameNumber()){
+            matchToUpdate.getSeason().setCompleted(true);
+        }
 
         matchToUpdate.handleResults(team1Score, team2Score);
         matchRepository.save(matchToUpdate);

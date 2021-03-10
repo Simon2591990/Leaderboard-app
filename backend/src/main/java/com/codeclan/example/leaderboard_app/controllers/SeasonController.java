@@ -60,6 +60,7 @@ public class SeasonController {
         seasonToUpdate.setMatches(season.getMatches());
         seasonToUpdate.setTotalMatches(season.getTotalMatches());
         seasonToUpdate.setPlayers(season.getPlayers());
+        seasonToUpdate.setCompleted((season.isCompleted()));
 
         seasonRepository.save(seasonToUpdate);
         return new ResponseEntity<Season>(seasonToUpdate, HttpStatus.OK);

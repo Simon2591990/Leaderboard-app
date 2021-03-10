@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Request from "../helpers/Request"
 
-const NewPlayers = () => {
+const NewPlayers = ({getAllPlayers}) => {
 
     const [statePlayer, setStatePlayer] = useState(
         {
@@ -20,6 +20,7 @@ const NewPlayers = () => {
         event.preventDefault()
         const request = new Request()
         request.post("api/players", statePlayer)
+        .then(() => getAllPlayers())
         setStatePlayer({
             name: ""
         })

@@ -4,7 +4,7 @@ import CreateMatch from './CreateMatch'
 import CreateSeason from './CreateSeason'
 import SeasonResults from './SeasonResults'
 import Home from '../components/Home'
-import NewPlayers from '../components/NewPlayers'
+import ManagePlayers from '../components/ManagePlayers'
 
 const MainContent = ({seasons, currentSeason, incrementDataCounter}) => {
         return(
@@ -16,10 +16,11 @@ const MainContent = ({seasons, currentSeason, incrementDataCounter}) => {
                     />
                 <Route 
                     path="/create_season" 
-                    render={() => <CreateSeason seasons={seasons} incrementDataCounter={incrementDataCounter}/>} 
+                    render={() => <CreateSeason currentSeason={currentSeason} incrementDataCounter={incrementDataCounter}/>} 
                     />
-                <Route path="/season_results" component={SeasonResults}/>
-                <Route path="/add_players" component={NewPlayers}/>
+                <Route path="/season_results" 
+                    render={() => <SeasonResults seasons={seasons} />}/>
+                <Route path="/players" component={ManagePlayers}/>
                 
             </Switch>
         )

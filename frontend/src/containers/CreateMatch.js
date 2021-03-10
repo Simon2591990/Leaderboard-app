@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link} from "react-router-dom"; 
 import Request from '../helpers/Request';
 
@@ -16,6 +16,9 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
     const handleTeeam2Score = (event) => {
         setTeam2Score(event.target.value)
     }
+    useEffect(() =>{
+        incrementDataCounter()
+    }, [])
 
     const createMatch = () => {
         let request = new Request();
@@ -36,7 +39,7 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
 
         let request = new Request();
         if (currentSeason.matches[currentSeason.matches.length-1].teams[0].result === ""){
-            if (match.gameNumber <= currentSeason.totalMatches){
+            if (!match.gameNumber <= currentSeason.totalMatches){
                     const submitScoreUrl = `/api/matches/${match.id}/${team1Score}/${team2Score}`
                     request.put(submitScoreUrl)
                     .then(() => incrementDataCounter())
