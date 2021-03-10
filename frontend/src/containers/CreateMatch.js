@@ -77,20 +77,24 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
                     <button onClick={submitScores}>Submit Score</button>
                     
                     <h3>Match Number: {match.gameNumber} / {currentSeason.totalMatches}</h3>
-                    <div>
+                    <div id="match-area">
+                        <div className="teams" id="team1">
                         <h2>{match.teams[0].name} </h2>
-                        <ul>
+                        <ul >
                             {team1Nodes}
                         </ul>
                         <label>Goals: </label>
-                        <input onChange={handleTeeam1Score} type="number" min="0"  value={team1Score}></input>
+                        <input onChange={handleTeeam1Score} className="input" type="number" min="0"  value={team1Score}></input>
+                        </div>
+                        <div  className="teams">
                         <h2>{match.teams[1].name}</h2>
                         <ul>
                             {team2Nodes}
                             
                         </ul>
                         <label>Goals: </label>
-                        <input onChange={handleTeeam2Score} type="number"  min="0" value={team2Score}></input>
+                        <input onChange={handleTeeam2Score} type="number" className="input" min="0" value={team2Score}></input>
+                        </div>
                     </div>
                 </>
             )

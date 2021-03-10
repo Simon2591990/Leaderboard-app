@@ -30,7 +30,6 @@ useEffect(() => {
 const allPlayerNodes = allPlayers.map((player, index) => {  
     return( 
         <>
-         
           <li><button className="button" onClick={() => {handleAddPlayerToTheList(player)}} key={player.id}>+ {player.name}</button></li>
        </>
     )})

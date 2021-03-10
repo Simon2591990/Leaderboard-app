@@ -52,3 +52,31 @@ justify-content: space-around;
   list-style: none;
 
   }
+
+#match-area{
+  background-image: url(../assets/pexels-mike-1171084.jpg);
+  background-size: cover;
+  display: flex;
+  justify-content: space-around;
+  height: 22em;
+  color: rgb(2, 32, 80);
+  margin: 2%;
+  /* text-shadow: 2px 2px rgba(19, 41, 17, 0.399); */
+  font-weight: 900;
+}
+.teams{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 2%;
+}
+.teams > ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80%;
+}
+#team1 {
+  color: rgb(72, 22, 11);
+}

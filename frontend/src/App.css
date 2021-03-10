@@ -47,7 +47,6 @@
   "header header"
   "nav nav"
   "main leaderboard";
-  position: sticky;
 
 }
 
@@ -66,8 +65,7 @@
   display: flex;
   flex-direction: column;
   justify-content: end;
-  position: sticky;
-  
+  margin-top: 2em;  
 
 }
 
