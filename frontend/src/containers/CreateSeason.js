@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Request from '../helpers/Request';
 
-const CreateSeason = ({seasons}) => {
+const CreateSeason = ({seasons, incrementDataCounter}) => {
 
 
 const [allPlayers, setAllPlayers] = useState([])
@@ -12,11 +12,7 @@ const [numberOfGames, setNumberOfGames] = useState(1)
 
 const [seasonName, setSeasonName] = useState("Season name")
 
-const [newSeason, setNewSeason] = useState({
-    name: "",
-    totalMatches: 0,
-    players: []
-})
+
 
 const getAllPlayers = () => {
     const reqest = new Request();
@@ -64,25 +60,22 @@ const handleSubmitNewSeason = () => {
     const request = new Request();
     
     
-    setNewSeason({
+    
+    const submittedSeason = {
         name: seasonName,
         totalMatches: numberOfGames,
         players: selectedPlayers
-    })
-    if (newSeason.name !== "" && newSeason.totalMatches != 0 && newSeason.players.length !== 0) {
-        request.post("api/seasons", newSeason)
-        
-        
-
-        setNewSeason({
-            name: "",
-            totalMatches: 0,
-            players: []
-        })
+    }
+    if (submittedSeason.name !== "" && submittedSeason.totalMatches != 0 && submittedSeason.players.length !== 0) {
+        request.post("api/seasons", submittedSeason)
+        .then(() => setSeasonName(""))
+        .then(() => setNumberOfGames(0))
+        .then(() => setSelectedPlayers([])) 
+        .then(() => incrementDataCounter())
+        .then(() => getAllPlayers())
     }
 
 }
-
 
 
 if (selectedPlayers.length < 10){
