@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link} from "react-router-dom"; 
 import Request from '../helpers/Request';
 
@@ -16,6 +16,9 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
     const handleTeeam2Score = (event) => {
         setTeam2Score(event.target.value)
     }
+    useEffect(() =>{
+        incrementDataCounter()
+    }, [])
 
     const createMatch = () => {
         let request = new Request();

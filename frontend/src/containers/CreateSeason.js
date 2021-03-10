@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Request from '../helpers/Request';
+import {Link} from 'react-router-dom' 
 
-const CreateSeason = ({seasons, incrementDataCounter}) => {
+const CreateSeason = ({currentSeason, incrementDataCounter}) => {
 
 
 const [allPlayers, setAllPlayers] = useState([])
@@ -66,6 +67,7 @@ const handleSubmitNewSeason = () => {
         totalMatches: numberOfGames,
         players: selectedPlayers
     }
+
     if (submittedSeason.name !== "" && submittedSeason.totalMatches != 0 && submittedSeason.players.length !== 0) {
         request.post("api/seasons", submittedSeason)
         .then(() => setSeasonName(""))
@@ -73,10 +75,19 @@ const handleSubmitNewSeason = () => {
         .then(() => setSelectedPlayers([])) 
         .then(() => incrementDataCounter())
         .then(() => getAllPlayers())
+        .then(() => {window.location = '/create_match/'})
     }
 
 }
-
+if (currentSeason.matches.length < currentSeason.totalMatches){
+    return(
+        <>
+        <h1>CreateSeason</h1>
+        <h3>Finish the current season first</h3>
+        </>
+    )
+}
+else {
 
 if (selectedPlayers.length < 10){
 
@@ -103,7 +114,9 @@ if (selectedPlayers.length < 10){
         return(
             <>
             <h1>CreateSeason</h1>
-            <button onClick={handleSubmitNewSeason} >Create New Season</button> 
+        
+            <button onClick={handleSubmitNewSeason} >Create New Season</button>
+            
             <label> Number of games: </label>
             <input type="number" required min="1" max="99" value={numberOfGames} name="numberOfGames" onChange={handleGameNumber}></input>
             <label> Season name: </label>
@@ -114,6 +127,7 @@ if (selectedPlayers.length < 10){
             </ul>
             </>
         )
+}
 }
 
 
