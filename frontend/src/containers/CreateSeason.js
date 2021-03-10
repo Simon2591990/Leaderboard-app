@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Request from '../helpers/Request';
 import {Link} from 'react-router-dom' 
+import NewPlayers from '../components/NewPlayers';
 
 const CreateSeason = ({currentSeason, incrementDataCounter}) => {
 
@@ -28,25 +29,35 @@ useEffect(() => {
 
 const allPlayerNodes = allPlayers.map((player, index) => {  
     return( 
-          <option  value={index}>{player.name}</option>
+        <>
+          {/* <li  value={index}>{player.name}</li> */}
+          <li><button onClick={() => {handleAddPlayerToTheList(player)}} key={player.id}>+ {player.name}</button></li>
+        </>
         )  
 })
 
 const selectedPlayersNodes = selectedPlayers.map((player) => {
     return(
-        <li>{player.name}</li>
+        <li><button onClick={() => {removePlayerFromTheList(player)}} key={player.id}>- {player.name}</button></li>
     )
 })
 
-const handleAddPlayerToTheList = (event) => {
-    event.preventDefault()
+const handleAddPlayerToTheList = (player) => {
     //add selected player to selectedPlayers state
-    setSelectedPlayers([...selectedPlayers,allPlayers[event.target.value]])
+    setSelectedPlayers([...selectedPlayers, player])
     //remove selected player from allPlayers state
-    const newAllPlayers = allPlayers.filter(function(player){
-        return player.id !== (allPlayers[event.target.value].id)
+    const newAllPlayers = allPlayers.filter(function(playerInAllPlayers){
+        return player.id !== (playerInAllPlayers.id)
     })
     setAllPlayers(newAllPlayers)
+}
+const removePlayerFromTheList = (player) => {
+    setAllPlayers([...allPlayers, player])
+
+    const newSelectedPlayers = selectedPlayers.filter(function(playerinSelectedPlayers){
+        return player.id !== (playerinSelectedPlayers.id)
+    })
+    setSelectedPlayers(newSelectedPlayers)
 }
 
 const handleSeasonName = (event) => {
@@ -94,17 +105,15 @@ if (selectedPlayers.length < 10){
     return(
         <>
         <h1>CreateSeason</h1>
+        <NewPlayers getAllPlayers={getAllPlayers} ></NewPlayers>
 
-        <form >
-               
-            <select name="select_players"   onChange={handleAddPlayerToTheList} >
-                <option>Select 10 players from this list</option>
+                <h3>Select 10 players from this list</h3>
+                <p>All Players</p>
+            <ul>
                 {allPlayerNodes}
-            </select>
+            </ul>
 
-           
-        </form>
-        
+        <p>Selected Players</p>
         <ul>
             {selectedPlayersNodes}
         </ul>

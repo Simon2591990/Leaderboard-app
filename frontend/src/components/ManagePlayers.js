@@ -1,13 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Request from "../helpers/Request"
 
-const NewPlayers = ({getAllPlayers}) => {
+const ManagePlayers = () => {
 
     const [statePlayer, setStatePlayer] = useState(
         {
             name: ""
         }
     )
+    const [allPlayers, setAllPlayers] = useState([])
+
+    const getAllPlayers = () => {
+        const reqest = new Request();
+        reqest.get("/api/players")
+        .then(data => setAllPlayers(data))
+    }
+    
+    useEffect(() => {
+        getAllPlayers() 
+     }, [])
 
     const handlePlayerName = (event) => {
         let propertyName = event.target.name;
@@ -25,6 +36,26 @@ const NewPlayers = ({getAllPlayers}) => {
             name: ""
         })
     }
+    const deletePlayer = (player) => {
+        const request = new Request();
+        request.delete(`api/players/${player.id}`)
+        .then(() => getAllPlayers())
+        
+
+
+    }
+
+    const allPlayerNodes = allPlayers.map((player, index) => {  
+        return( 
+            <>
+              
+              <li  key={player.id}>
+                <p>{player.name}</p>
+                <button onClick={(() => deletePlayer(player))}>Delete</button>
+              </li>
+            </>
+            )  
+    })
 
     return(
         <>
@@ -34,8 +65,11 @@ const NewPlayers = ({getAllPlayers}) => {
         <input onChange={handlePlayerName} type="text" name="name" value={statePlayer.name}></input>
         <button type="submit" >Add Player</button>
         </form>
+        <ul>
+        {allPlayerNodes}
+        </ul>
         </>
     )
 }
 
-export default NewPlayers
+export default ManagePlayers
