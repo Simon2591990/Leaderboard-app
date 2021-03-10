@@ -1,0 +1,50 @@
+.match-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #3E885B;
+    color: #F7F3E3;
+}
+
+.match-team {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-1 {
+    background-color: #862009;
+}
+
+.team-2 {
+    background-color: #022050;
+}
+
+.match-team > ul{ 
+    list-style-type: none;
+}
+
+@keyframes fadePlayers {
+    100% { opacity: 1;}
+}
+
+.match-team > ul > li{
+    opacity: 0;
+    animation: fadePlayers 1s forwards;
+}
+
+.match-team > ul > li:nth-child(1){
+    animation-delay: 1s;
+}
+.match-team > ul > li:nth-child(2){
+    animation-delay: 2s;
+}
+.match-team > ul > li:nth-child(3){
+    animation-delay: 3s;
+}
+.match-team > ul > li:nth-child(4){
+    animation-delay: 4s;
+}
+.match-team > ul > li:nth-child(5){
+    animation-delay: 5s;
+}
