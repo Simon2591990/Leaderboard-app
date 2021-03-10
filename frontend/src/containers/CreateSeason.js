@@ -8,7 +8,7 @@ const [allPlayers, setAllPlayers] = useState([])
 
 const [selectedPlayers, setSelectedPlayers] = useState([])
 
-const [numberOfGames, setNumberOfGames] = useState(1)
+const [numberOfGames, setNumberOfGames] = useState(0)
 
 const [seasonName, setSeasonName] = useState("Season name")
 
