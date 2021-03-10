@@ -63,15 +63,6 @@ const handleGameNumber = (event) => {
 const handleSubmitNewSeason = () => {
     const request = new Request();
     
-    selectedPlayers.forEach(player => {
-        player.gamesPlayer = 0;
-        player.gamesWon = 0;
-        player.gamesLost = 0;
-        player.gamesDrawn = 0;
-        player.points = 0;
-        request.put(`api/players/${player.id}`, player)
-        
-    });
     
     setNewSeason({
         name: seasonName,
@@ -82,13 +73,17 @@ const handleSubmitNewSeason = () => {
         request.post("api/seasons", newSeason)
         
         
+
         setNewSeason({
             name: "",
             totalMatches: 0,
             players: []
         })
     }
+
 }
+
+
 
 if (selectedPlayers.length < 10){
 

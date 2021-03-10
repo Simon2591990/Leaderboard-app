@@ -216,6 +216,14 @@ public class Player {
             this.totalPoints += 1;
         }if (result == "loss"){
             this.gamesLost += 1;
+            this.totalGamesLost += 1;
         }
+    }
+    public void resetSeasonResults(){
+        this.gamesPlayed = 0;
+        this.gamesWon = 0;
+        this.gamesLost = 0;
+        this.gamesDrawn = 0;
+        this.points = 0;
     }
 }
