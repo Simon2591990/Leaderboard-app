@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {Link} from "react-router-dom"; 
 import Request from '../helpers/Request';
+import "./CreateMatch.css"
 
 const CreateMatch = ({currentSeason, incrementDataCounter}) => {
 
@@ -70,25 +71,35 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
 
             return (
                 <>
+                <div className="create-match-container">
                     <h1>Current Match</h1>
                     <button onClick={createMatch}>New {currentSeason.name} Match</button>
                     <button onClick={submitScores}>Submit Score</button>
                     
                     <h3>Match Number: {match.gameNumber} / {currentSeason.totalMatches}</h3>
-                    <div>
-                        <h2>{match.teams[0].name} </h2>
-                        <ul>
-                            {team1Nodes}
-                        </ul>
-                        <label>Goals: </label>
-                        <input onChange={handleTeeam1Score} type="number" min="0"  value={team1Score}></input>
-                        <h2>{match.teams[1].name}</h2>
-                        <ul>
-                            {team2Nodes}
-                        </ul>
-                        <label>Goals: </label>
-                        <input onChange={handleTeeam2Score} type="number"  min="0" value={team2Score}></input>
+                    <div className="match-container">
+                        <div className="match-team team-2">
+                            <h2>{match.teams[0].name} </h2>
+                            <ul>
+                                {team1Nodes}
+                            </ul>
+                            <div className="goals-input">
+                                <label>Goals: </label>
+                                <input onChange={handleTeeam1Score} type="number" min="0"  value={team1Score}></input>
+                            </div>
+                        </div>
+                        <div className="match-team team-1">
+                            <h2>{match.teams[1].name}</h2>
+                            <ul>
+                                {team2Nodes}
+                            </ul>
+                            <div className="goals-input">
+                                <label>Goals: </label>
+                                <input onChange={handleTeeam2Score} type="number"  min="0" value={team2Score}></input>
+                            </div>
+                        </div>
                     </div>
+                </div>
                 </>
             )
         }
