@@ -42,7 +42,7 @@ const MatchDetails = ({match}) => {
                     </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
-                    <div className="teams">
+                    <div className="accordion-teams">
                         <div className="team-players">
                             {team1PlayerNodes}
                         </div>
