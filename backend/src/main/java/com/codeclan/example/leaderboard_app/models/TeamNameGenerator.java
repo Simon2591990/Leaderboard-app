@@ -109,7 +109,8 @@ public class TeamNameGenerator {
                 "nervous" ,
                 "unnatural" ,
                 "unequaled" ,
-                "far-flung"));
+                "far-flung",
+                "wonky"));
         this.animals = new ArrayList<>(Arrays.asList("civets" ,
                 "minks" ,
                 "orcs" ,
@@ -206,7 +207,6 @@ public class TeamNameGenerator {
                 "terriers",
                 "bulldogs",
                 "trolls",
-                "dire Wolves",
                 "hamsters",
                 "maggots",
                 "wasps",
@@ -215,7 +215,7 @@ public class TeamNameGenerator {
                 "dire Wolves",
                 "bulls",
                 "sharks",
-                "maggots"));
+                "badgers"));
     }
 
     public ArrayList<String> getAdjectives() {
