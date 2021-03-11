@@ -43,10 +43,12 @@
 
 #root{
   display: grid;
+  grid-template-columns:60% 40%;
   grid-template-areas:
   "header header"
   "nav nav"
   "main leaderboard";
+
 }
 
 #header{
@@ -64,7 +66,13 @@
 #leaderboard{
   
   grid-area: leaderboard;
-  
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  margin-top: 6em;  
+
+
 }
 
 #main-content{

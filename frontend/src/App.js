@@ -6,6 +6,8 @@ import NavBar from './components/NavBar';
 import MainContent from './containers/MainContent';
 import {BrowserRouter as Router}  from 'react-router-dom';
 import Request from './helpers/Request';
+import './containers/Style.css'
+import Loading from './assets/loading.gif'
 
 
 function App() {
@@ -66,7 +68,9 @@ function App() {
 
   if (isLoaded === false){
     return(
-      <p>Loading</p>
+      <div id="loading">
+      <img src={Loading} />
+      </div>
     )
   }
 
