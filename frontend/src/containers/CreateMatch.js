@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import {Link} from "react-router-dom"; 
 import Request from '../helpers/Request';
 import "./CreateMatch.css"
 
@@ -109,39 +108,6 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
                                  <label>Goals: </label>
                                  <input onChange={handleTeeam2Score} type="number"  min="0" value={team2Score}></input>
                              </div>
-
-
-
-
-
-
-
-                    {/* <div id="match-area">
-                        <div className="teams" id="team1">
-                        <h2>{match.teams[0].name} </h2>
-                        <ul >
-                            {team1Nodes}
-                        </ul>
-                        <div>
-                        <label>Goals: </label>
-                        <input onChange={handleTeeam1Score}  className="input" type="number" min="0"  value={team1Score}></input>
-                        </div>
-                        </div>
-                        <div  className="teams">
-                        <h2>{match.teams[1].name}</h2>
-                        <ul>
-                            {team2Nodes}
-                            
-                        </ul>
-                        <div>
-                        <label>Goals: </label>
-                        <input onChange={handleTeeam2Score} type="number" className="input" min="0" value={team2Score}></input>
-                        </div> */}
-
-
-
-
-{/* // >>>>>>> feature/alert */}
                         </div>
                     </div>
                 </div>

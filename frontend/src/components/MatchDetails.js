@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    Accordion,
     AccordionItem,
     AccordionItemHeading,
     AccordionItemButton,
@@ -24,9 +23,6 @@ const MatchDetails = ({match}) => {
 
     return(
         <>
-        
-
-
             <AccordionItem>
                 <AccordionItemHeading>
                     <AccordionItemButton>

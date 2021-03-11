@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './Leaderboard.css';
-import Request from '../helpers/Request';
 
 const Leaderboard = ({ allPlayers, players, currentSeasonName}) => {
 

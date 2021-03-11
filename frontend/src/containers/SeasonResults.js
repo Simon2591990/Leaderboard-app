@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
 import MatchDetails from "../components/MatchDetails";
 import {
-    Accordion,
-    AccordionItem,
-    AccordionItemHeading,
-    AccordionItemButton,
-    AccordionItemPanel,
-} from 'react-accessible-accordion';
+    Accordion
+} 
+from 'react-accessible-accordion';
 import "./SeasonResults.css"
 
 const SeasonResults = ({seasons}) => {

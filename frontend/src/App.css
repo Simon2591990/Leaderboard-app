@@ -60,7 +60,9 @@
 #nav-bar{
   grid-area: nav;
   justify-self: center;
-  width: 90%;
+  width: 100%;
+  background-color:rgb(62, 136, 91);
+  border-bottom: 5px solid #F7F3E3;
   
 }
 

@@ -79,7 +79,7 @@ function App() {
     <Router >
       <>
       <div id="header">
-        <Header title="Tournament App"/>
+        <Header/>
       </div>
       <div id="nav-bar">
         <NavBar/>
