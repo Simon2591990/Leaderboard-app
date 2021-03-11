@@ -29,9 +29,11 @@ const ManagePlayers = () => {
     
     const createPlayer = (event) => {
         event.preventDefault()
+        if (statePlayer.name !== ""){
         const request = new Request()
         request.post("api/players", statePlayer)
         .then(() => getAllPlayers())
+        }
         setStatePlayer({
             name: ""
         })
@@ -52,8 +54,8 @@ const ManagePlayers = () => {
             <>
               
               <li  key={player.id}>
-                <p>{player.name}</p>
-                <button onClick={(() => deletePlayer(player))}>Delete</button>
+                {/* <p className="button">{player.name}</p> */}
+                <button className="button" onClick={(() => deletePlayer(player))}>Delete {player.name}</button>
               </li>
             </>
             )  
