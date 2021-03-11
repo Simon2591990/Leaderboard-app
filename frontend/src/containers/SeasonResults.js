@@ -7,6 +7,7 @@ import {
     AccordionItemButton,
     AccordionItemPanel,
 } from 'react-accessible-accordion';
+import "./SeasonResults.css"
 
 const SeasonResults = ({seasons}) => {
 
@@ -22,7 +23,7 @@ const SeasonResults = ({seasons}) => {
 
     return(
         <>
-            <h1>Season Results</h1>
+            <h1 id="season-results-header">Season Results</h1>
             <Accordion>
                 {matchNodes}
             </Accordion>

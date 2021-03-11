@@ -92,7 +92,7 @@ const handleSubmitNewSeason = () => {
 if (currentSeason.matches.length < currentSeason.totalMatches){
     return(
         <>
-        <h1>CreateSeason</h1>
+        <h1>Create Season</h1>
         <h3>Finish the current season first</h3>
         </>
     )
@@ -103,9 +103,10 @@ if (selectedPlayers.length < 10){
 
     return(
         <>
-        <h1>CreateSeason</h1>
+
+        <h1 id="create-season-header">Create Season</h1>
       
-        <NewPlayers getAllPlayers={getAllPlayers} ></NewPlayers>
+        {/* <NewPlayers getAllPlayers={getAllPlayers} ></NewPlayers> */}
     
     
                 
@@ -130,7 +131,8 @@ if (selectedPlayers.length < 10){
     } else
         return(
             <>
-            <h1>CreateSeason</h1>
+            <div id="create-season-header">
+            <h1>Create Season</h1>
         
             <button onClick={handleSubmitNewSeason} >Create New Season</button>
             
@@ -139,6 +141,7 @@ if (selectedPlayers.length < 10){
             <label> Season name: </label>
 
             <input type="text" required value={seasonName} name="seasonName" onChange={handleSeasonName}></input>
+            </div>
             <ul>
                 {selectedPlayersNodes}
             </ul>

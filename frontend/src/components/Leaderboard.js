@@ -56,9 +56,12 @@ const Leaderboard = ({ allPlayers, players, currentSeasonName}) => {
     if (leaderboardSelected === "current"){
         return(
             <>
-            <h2>Leaderboard - {currentSeasonName}</h2>
+            <div id="leaderboard-header">
+            <h1>Leaderboard </h1>
+            <h3>{currentSeasonName}</h3>
             
-            <button onClick={() => changeLeaderboard("all_time")}>Current Season</button>
+            <button className="button" onClick={() => changeLeaderboard("all_time")}>Show All Season</button>
+            </div>
             <table className="leaderboard-table">
                         <thead>
                             <tr className="leaderboard-table-header">
@@ -81,8 +84,11 @@ const Leaderboard = ({ allPlayers, players, currentSeasonName}) => {
     if (leaderboardSelected === "all_time"){
         return(
             <>
-            <h2>All Time Leaderboard</h2>
-            <button onClick={() => changeLeaderboard("current")}>Current Season</button>
+            <div id="leaderboard-header">
+            <h1>Leaderboard</h1>
+            <h3>All Time</h3>
+            <button className="button" onClick={() => changeLeaderboard("current")}>Show Current Season</button>
+            </div>
             <table className="leaderboard-table">
                         <thead>
                             <tr className="leaderboard-table-header">

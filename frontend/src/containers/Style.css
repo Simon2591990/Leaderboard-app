@@ -45,10 +45,12 @@ body {
   width: 90%;
 }
 #createLists {
+margin-top: 7em;
 display: flex;
 justify-content: space-around;
 border: solid;
 border-color: rgb(247, 243, 227);
+color:rgb(247, 243, 227);
 height: 30em;
 }
 #createLists > div {
@@ -100,4 +102,9 @@ border-color: rgb(247, 243, 227);
 }
 #loading {
   margin-left: 40%;
+}
+
+#create-season-header{
+  color: rgb(247, 243, 227);
+  text-align: center;
 }

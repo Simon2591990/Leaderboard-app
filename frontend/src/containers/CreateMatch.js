@@ -53,9 +53,12 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
         if (!match) {
             return(
                 <>
+                <div id="create-match-header">
                     <h1>Current Match</h1>
                     <button className="button" onClick={createMatch}>New {currentSeason.name} Match</button>
                     <button className="button" onClick={submitScores}>Submit Score</button>
+                    </div>
+
                 </>
             )
         }
@@ -75,12 +78,13 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
             return (
                 <>
                 <div className="create-match-container">
+                    <div id="create-match-header">
                     <h1>Current Match</h1>
                     <button className="button" onClick={createMatch}>New {currentSeason.name} Match</button>
                     <button className="button" onClick={submitScores}>Submit Score</button>
                     
-                    <h3>Match Number: {match.gameNumber} / {currentSeason.totalMatches}</h3>
-
+                    <h3 id="match-number">Match Number: {match.gameNumber} / {currentSeason.totalMatches}</h3>
+                    </div>
 
 
 

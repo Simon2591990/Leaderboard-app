@@ -91,3 +91,12 @@
 .match-team > ul > li:nth-child(5){
     animation-delay: 5s;
 }
+
+#create-match-header {
+    color: rgb(247, 243, 227);
+    text-align: center;
+}
+
+#match-number {
+    margin-top : 0;
+}

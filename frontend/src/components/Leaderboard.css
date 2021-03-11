@@ -17,3 +17,8 @@
 .leaderboard-table td, .leaderboard-table th {
     padding: 8px;
 }
+
+#leaderboard-header{
+    color: #F7F3E3;
+    text-align: center;
+}

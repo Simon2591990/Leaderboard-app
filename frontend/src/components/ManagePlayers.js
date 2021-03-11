@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Request from "../helpers/Request"
+import './ManagePlayers.css'
 
 const ManagePlayers = () => {
 
@@ -63,13 +64,15 @@ const ManagePlayers = () => {
 
     return(
         <>
+        <div id="new-player-form">
         <h1>Create New Player Tab</h1>
-        <form onSubmit={createPlayer}>
+        <form  onSubmit={createPlayer}>
         <label>Player Name: </label>
-        <input onChange={handlePlayerName} type="text" name="name" value={statePlayer.name}></input>
-        <button type="submit" >Add Player</button>
+        <input className="input" onChange={handlePlayerName} type="text" name="name" value={statePlayer.name}></input>
+        <button className="nav-link" type="submit" >Add Player</button>
         </form>
-        <ul>
+        </div>
+        <ul id="all-players-manage">
         {allPlayerNodes}
         </ul>
         </>
