@@ -1,0 +1,81 @@
+/* Create Match container */
+.create-match-container{
+    background-color: #2F4B26;
+    color: #F7F3E3;
+}
+
+/* Match container */
+.match-container {
+    display: flex;
+    justify-content: space-around;
+    background-color: #2F4B26;
+    color: #F7F3E3;
+}
+
+.match-team {
+    width: 50%;
+    margin: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.team-1 {
+    background-color: #862009;
+}
+
+.team-2 {
+    background-color: #022050;
+}
+
+.match-team > ul{ 
+    list-style-type: none;
+    padding-left: 0;
+}
+
+/* Goals input */
+.goals-input{
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    margin-bottom: 1em;
+}
+
+.match-team input{
+    width: 20%;
+    font-size: large;
+}
+.match-team input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+}
+.match-team label{
+    font-size: large;
+}
+
+/* Player display animation */
+@keyframes fadePlayers {
+    100% { opacity: 1;}
+}
+
+.match-team > ul > li{
+    padding: 0.5em;
+    font-size: x-large;
+    opacity: 0;
+    animation: fadePlayers 1s forwards;
+}
+
+.match-team > ul > li:nth-child(1){
+    animation-delay: 1s;
+}
+.match-team > ul > li:nth-child(2){
+    animation-delay: 2s;
+}
+.match-team > ul > li:nth-child(3){
+    animation-delay: 3s;
+}
+.match-team > ul > li:nth-child(4){
+    animation-delay: 4s;
+}
+.match-team > ul > li:nth-child(5){
+    animation-delay: 5s;
+}

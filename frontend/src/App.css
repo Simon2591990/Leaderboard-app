@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -53,22 +54,28 @@
 #header{
   grid-area: header;
   justify-self: center;
+  
 }
 
 #nav-bar{
   grid-area: nav;
   justify-self: center;
+  
 }
 
 #leaderboard{
+  
   grid-area: leaderboard;
+
   display: flex;
   flex-direction: column;
   justify-content: end;
   margin-top: 6em;  
 
+
 }
 
 #main-content{
   grid-area: main;
+  
 }

@@ -21,6 +21,8 @@ function App() {
   const [isLoaded, setIsLoaded] = useState(false)
   const [newDataCounter, setNewDataCounter] = useState(0)
 
+  const [allPlayers, setAllPlayers] = useState([])
+
     const getSeasons = () => {
         const request = new Request();
 
@@ -32,13 +34,21 @@ function App() {
         })
         .then(() => setIsLoaded(true))
     }
+    const getAllPlayers = () => {
+      const reqest = new Request();
+      reqest.get("/api/players")
+      .then(data => setAllPlayers(data))
+  }
+    
     
     useEffect(() => {
        getSeasons() 
+       getAllPlayers()
     }, [newDataCounter])
+
     useEffect(() => {
       sortPlayersByPoints()
-   }, [players])
+   }, [players, allPlayers])
 
     const incrementDataCounter = () => {
       setNewDataCounter(newDataCounter + 1)
@@ -48,6 +58,10 @@ function App() {
       players.sort((player1, player2) => {
         return player2.points - player1.points;
       })
+      allPlayers.sort((player1, player2) => {
+        return player2.totalPoints - player1.totalPoints;
+      })
+      
     }
 
   
@@ -61,7 +75,8 @@ function App() {
   }
 
   return (
-    <Router>
+    
+    <Router >
       <>
       <div id="header">
         <Header title="Tournament App"/>
@@ -72,6 +87,7 @@ function App() {
       <div id="leaderboard">
         <Leaderboard
         players={players}
+        allPlayers={allPlayers}
         currentSeasonName={currentSeason.name}
         />
       </div>
@@ -84,6 +100,7 @@ function App() {
       </div>
       </>
     </Router>
+    
     
   );
 }
