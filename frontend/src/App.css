@@ -60,6 +60,7 @@
 #nav-bar{
   grid-area: nav;
   justify-self: center;
+  width: 90%;
   
 }
 
