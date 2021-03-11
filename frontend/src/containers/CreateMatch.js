@@ -4,6 +4,7 @@ import Request from '../helpers/Request';
 import "./CreateMatch.css"
 
 
+
 const CreateMatch = ({currentSeason, incrementDataCounter}) => {
 
     const createMatchUrl = "/api/seasons/" + currentSeason.id + "/new_match"
@@ -53,8 +54,8 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
             return(
                 <>
                     <h1>Current Match</h1>
-                    <button onClick={createMatch}>New {currentSeason.name} Match</button>
-                    <button onClick={submitScores}>Submit Score</button>
+                    <button className="button" onClick={createMatch}>New {currentSeason.name} Match</button>
+                    <button className="button" onClick={submitScores}>Submit Score</button>
                 </>
             )
         }
@@ -75,8 +76,8 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
                 <>
                 <div className="create-match-container">
                     <h1>Current Match</h1>
-                    <button onClick={createMatch}>New {currentSeason.name} Match</button>
-                    <button onClick={submitScores}>Submit Score</button>
+                    <button className="button" onClick={createMatch}>New {currentSeason.name} Match</button>
+                    <button className="button" onClick={submitScores}>Submit Score</button>
                     
                     <h3>Match Number: {match.gameNumber} / {currentSeason.totalMatches}</h3>
 
