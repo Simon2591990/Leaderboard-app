@@ -49,6 +49,25 @@
     transform: rotate(45deg);
 }
 
+.match-result-result {
+    width: 10%;
+    text-align: center;
+}
+.match-result-name {
+    width: 30%;
+    text-align: center;
+}
+.match-result-goals {
+    width: 5%;
+    text-align: center;
+}
+.match-result-vs {
+    width: 5%;
+    text-align: center;
+}
+
+
+
 .accordion__panel {
     padding: 20px;
     animation: fadeIn ease 1s;
