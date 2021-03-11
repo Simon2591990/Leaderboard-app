@@ -7,7 +7,7 @@
     align-items: baseline;
 }
 
-.teams {
+.accordion-teams {
     display: flex;
     justify-content: space-around;
 }
@@ -18,8 +18,8 @@
 }
 
 .accordion__button {
-    background-color: #2F4B26;
-    color: #F7F3E3;
+    background-color: #F7F3E3;
+    color: #2F4B26;
     cursor: pointer;
     padding: 18px;
     /* width: 100%; */
@@ -32,6 +32,7 @@
 }
 .accordion__button:hover{
     background-color: #3E885B;
+    color: #F7F3E3;
 }
 .accordion__button:after {
     display: inline-block;

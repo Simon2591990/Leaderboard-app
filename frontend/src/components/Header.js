@@ -3,7 +3,7 @@ import React from "react"
 import football from '../assets/football.gif'
 import logo from '../assets/logo.png'
 
-const Header = ({title}) => {
+const Header = () => {
     return(
         <>
         

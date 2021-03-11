@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import {Link} from "react-router-dom"; 
 import Request from '../helpers/Request';
 import "./CreateMatch.css"
+
 
 
 const CreateMatch = ({currentSeason, incrementDataCounter}) => {
@@ -52,9 +52,12 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
         if (!match) {
             return(
                 <>
+                <div id="create-match-header">
                     <h1>Current Match</h1>
-                    <button onClick={createMatch}>New {currentSeason.name} Match</button>
-                    <button onClick={submitScores}>Submit Score</button>
+                    <button className="button" onClick={createMatch}>New {currentSeason.name} Match</button>
+                    <button className="button" onClick={submitScores}>Submit Score</button>
+                    </div>
+
                 </>
             )
         }
@@ -74,55 +77,37 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
             return (
                 <>
                 <div className="create-match-container">
+                    <div id="create-match-header">
                     <h1>Current Match</h1>
-                    <button onClick={createMatch}>New {currentSeason.name} Match</button>
-                    <button onClick={submitScores}>Submit Score</button>
+                    <button className="button" onClick={createMatch}>New {currentSeason.name} Match</button>
+                    <button className="button" onClick={submitScores}>Submit Score</button>
                     
-                    <h3>Match Number: {match.gameNumber} / {currentSeason.totalMatches}</h3>
-// <<<<<<< develop
-//                     <div className="match-container">
-//                         <div className="match-team team-2">
-//                             <h2>{match.teams[0].name} </h2>
-//                             <ul>
-//                                 {team1Nodes}
-//                             </ul>
-//                             <div className="goals-input">
-//                                 <label>Goals: </label>
-//                                 <input onChange={handleTeeam1Score} type="number" min="0"  value={team1Score}></input>
-//                             </div>
-//                         </div>
-//                         <div className="match-team team-1">
-//                             <h2>{match.teams[1].name}</h2>
-//                             <ul>
-//                                 {team2Nodes}
-//                             </ul>
-//                             <div className="goals-input">
-//                                 <label>Goals: </label>
-//                                 <input onChange={handleTeeam2Score} type="number"  min="0" value={team2Score}></input>
-//                             </div>
-// =======
-                    <div id="match-area">
-                        <div className="teams" id="team1">
-                        <h2>{match.teams[0].name} </h2>
-                        <ul >
-                            {team1Nodes}
-                        </ul>
-                        <div>
-                        <label>Goals: </label>
-                        <input onChange={handleTeeam1Score}  className="input" type="number" min="0"  value={team1Score}></input>
-                        </div>
-                        </div>
-                        <div  className="teams">
-                        <h2>{match.teams[1].name}</h2>
-                        <ul>
-                            {team2Nodes}
-                            
-                        </ul>
-                        <div>
-                        <label>Goals: </label>
-                        <input onChange={handleTeeam2Score} type="number" className="input" min="0" value={team2Score}></input>
-                        </div>
-// >>>>>>> feature/alert
+                    <h3 id="match-number">Match Number: {match.gameNumber} / {currentSeason.totalMatches}</h3>
+                    </div>
+
+
+
+
+                   <div className="match-container">
+                         <div className="match-team team-2">
+                             <h2>{match.teams[0].name} </h2>
+                             <ul>
+                                {team1Nodes}
+                             </ul>
+                            <div className="goals-input">
+                                 <label>Goals: </label>
+                                 <input onChange={handleTeeam1Score} type="number" min="0"  value={team1Score}></input>
+                             </div>
+                         </div>
+                         <div className="match-team team-1">
+                             <h2>{match.teams[1].name}</h2>
+                             <ul>
+                                 {team2Nodes}
+                             </ul>
+                             <div className="goals-input">
+                                 <label>Goals: </label>
+                                 <input onChange={handleTeeam2Score} type="number"  min="0" value={team2Score}></input>
+                             </div>
                         </div>
                     </div>
                 </div>

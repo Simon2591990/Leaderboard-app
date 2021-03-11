@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-    Accordion,
     AccordionItem,
     AccordionItemHeading,
     AccordionItemButton,
@@ -24,9 +23,6 @@ const MatchDetails = ({match}) => {
 
     return(
         <>
-        
-
-
             <AccordionItem>
                 <AccordionItemHeading>
                     <AccordionItemButton>
@@ -42,7 +38,7 @@ const MatchDetails = ({match}) => {
                     </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
-                    <div className="teams">
+                    <div className="accordion-teams">
                         <div className="team-players">
                             {team1PlayerNodes}
                         </div>

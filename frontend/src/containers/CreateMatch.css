@@ -8,24 +8,36 @@
 .match-container {
     display: flex;
     justify-content: space-around;
-    background-color: #2F4B26;
+    /* background-color: #2F4B26; */
     color: #F7F3E3;
+    background-image: url('../assets/pitch.jpg');
+    background-size: cover;
+
+
 }
 
 .match-team {
     width: 50%;
-    margin: 1em;
+    /* margin: 1em; */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .team-1 {
-    background-color: #862009;
+    color: #862009;
+    font-weight: bolder;
+    font-size: 150%;
+    background-color: #53bf2f76;
+    text-align: right;
 }
 
 .team-2 {
-    background-color: #022050;
+    color: #022050;
+    font-weight: bolder;
+    font-size: 150%;
+    background-color: #53bf2f76;
+
 }
 
 .match-team > ul{ 
@@ -78,4 +90,13 @@
 }
 .match-team > ul > li:nth-child(5){
     animation-delay: 5s;
+}
+
+#create-match-header {
+    color: rgb(247, 243, 227);
+    text-align: center;
+}
+
+#match-number {
+    margin-top : 0;
 }
