@@ -9,10 +9,9 @@
   text-align: center;
   text-decoration: none;
   font-size: 14px;
-  box-shadow: none;
   cursor: pointer;
   border-radius: 30px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.044), 0 3px 20px 0 rgba(0, 0, 0, 0.064);
+  box-shadow: 0 4px 4px 0 rgba(0, 34, 8, 0.044), 0 3px 20px 0 rgba(0, 38, 4, 0.66);
   background-color: rgb(62, 136, 91);
   margin-bottom: 2%;}
 .button:hover {
@@ -95,4 +94,7 @@ border-color: rgb(247, 243, 227);
 }
 #team1 {
   color: rgb(72, 22, 11);
+}
+#loading {
+  margin-left: 40%;
 }

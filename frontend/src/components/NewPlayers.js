@@ -44,11 +44,9 @@ const NewPlayers = ({getAllPlayers}) => {
   >
        {close => (
       <div className="modal">
-        <button className="close" onClick={close} >
-          &times;
-        </button>
-        <div className="header"> New Player was added to the game database 🏆</div>
-        <div className="content">
+       
+        <div className="header" onClick={close}> New Player was added to the game database 🏆</div>
+        <div className="content" onClick={close}>
           {' '}
           You can add him to your season 🚀
         </div>

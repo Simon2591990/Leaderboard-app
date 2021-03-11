@@ -108,18 +108,17 @@ if (selectedPlayers.length < 10){
         <NewPlayers getAllPlayers={getAllPlayers} ></NewPlayers>
     
     
-                <h3>Select 10 players from this list</h3>
                 
         <div id="createLists">
             <div>
-            <p>All Players</p>
+            <p>All players:</p>
             
             <ul>
                 {allPlayerNodes}
             </ul>
             </div>
             <div>
-            <p>Selected Players</p>
+            <p>10 players to start new season:</p>
             
             <ul>
                 {selectedPlayersNodes}
