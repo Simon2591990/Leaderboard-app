@@ -79,29 +79,39 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
                     <button onClick={submitScores}>Submit Score</button>
                     
                     <h3>Match Number: {match.gameNumber} / {currentSeason.totalMatches}</h3>
-// <<<<<<< develop
-//                     <div className="match-container">
-//                         <div className="match-team team-2">
-//                             <h2>{match.teams[0].name} </h2>
-//                             <ul>
-//                                 {team1Nodes}
-//                             </ul>
-//                             <div className="goals-input">
-//                                 <label>Goals: </label>
-//                                 <input onChange={handleTeeam1Score} type="number" min="0"  value={team1Score}></input>
-//                             </div>
-//                         </div>
-//                         <div className="match-team team-1">
-//                             <h2>{match.teams[1].name}</h2>
-//                             <ul>
-//                                 {team2Nodes}
-//                             </ul>
-//                             <div className="goals-input">
-//                                 <label>Goals: </label>
-//                                 <input onChange={handleTeeam2Score} type="number"  min="0" value={team2Score}></input>
-//                             </div>
-// =======
-                    <div id="match-area">
+
+
+
+
+
+                   <div className="match-container">
+                         <div className="match-team team-2">
+                             <h2>{match.teams[0].name} </h2>
+                             <ul>
+                                {team1Nodes}
+                             </ul>
+                            <div className="goals-input">
+                                 <label>Goals: </label>
+                                 <input onChange={handleTeeam1Score} type="number" min="0"  value={team1Score}></input>
+                             </div>
+                         </div>
+                         <div className="match-team team-1">
+                             <h2>{match.teams[1].name}</h2>
+                             <ul>
+                                 {team2Nodes}
+                             </ul>
+                             <div className="goals-input">
+                                 <label>Goals: </label>
+                                 <input onChange={handleTeeam2Score} type="number"  min="0" value={team2Score}></input>
+                             </div>
+
+
+
+
+
+
+
+                    {/* <div id="match-area">
                         <div className="teams" id="team1">
                         <h2>{match.teams[0].name} </h2>
                         <ul >
@@ -121,8 +131,12 @@ const CreateMatch = ({currentSeason, incrementDataCounter}) => {
                         <div>
                         <label>Goals: </label>
                         <input onChange={handleTeeam2Score} type="number" className="input" min="0" value={team2Score}></input>
-                        </div>
-// >>>>>>> feature/alert
+                        </div> */}
+
+
+
+
+{/* // >>>>>>> feature/alert */}
                         </div>
                     </div>
                 </div>

@@ -67,7 +67,7 @@ border-color: rgb(247, 243, 227);
   }
 
 #match-area{
-  background-image: url(../assets/pexels-mike-1171084.jpg);
+  /* background-image: url(../assets/pexels-mike-1171084.jpg); */
   background-size: cover;
   display: flex;
   justify-content: space-around;
