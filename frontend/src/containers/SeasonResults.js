@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
-import MatchDetails from "../components/MatchDetails"
+import MatchDetails from "../components/MatchDetails";
+import {
+    Accordion
+} 
+from 'react-accessible-accordion';
+import "./SeasonResults.css"
 
 const SeasonResults = ({seasons}) => {
 
@@ -7,14 +12,18 @@ const SeasonResults = ({seasons}) => {
 
     const matchNodes = selectedSeason.matches.map((match)=> {
             return(
+
+                
                 <MatchDetails match={match} key={match.id}/>
             )
     })
 
     return(
         <>
-            <h1>Season Results</h1>
-            {matchNodes}
+            <h1 id="season-results-header">Season Results</h1>
+            <Accordion>
+                {matchNodes}
+            </Accordion>
         </>
 
     )

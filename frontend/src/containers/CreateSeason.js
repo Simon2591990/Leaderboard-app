@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Request from '../helpers/Request';
-import {Link} from 'react-router-dom' 
-import NewPlayers from '../components/NewPlayers';
+import './Style.css'
 
 const CreateSeason = ({currentSeason, incrementDataCounter}) => {
 
@@ -10,10 +9,9 @@ const [allPlayers, setAllPlayers] = useState([])
 
 const [selectedPlayers, setSelectedPlayers] = useState([])
 
-const [numberOfGames, setNumberOfGames] = useState(1)
+const [numberOfGames, setNumberOfGames] = useState(0)
 
 const [seasonName, setSeasonName] = useState("Season name")
-
 
 
 const getAllPlayers = () => {
@@ -30,15 +28,13 @@ useEffect(() => {
 const allPlayerNodes = allPlayers.map((player, index) => {  
     return( 
         <>
-          {/* <li  value={index}>{player.name}</li> */}
-          <li><button onClick={() => {handleAddPlayerToTheList(player)}} key={player.id}>+ {player.name}</button></li>
-        </>
-        )  
-})
+          <li><button className="button" onClick={() => {handleAddPlayerToTheList(player)}} key={player.id}>+ {player.name}</button></li>
+       </>
+    )})
 
 const selectedPlayersNodes = selectedPlayers.map((player) => {
     return(
-        <li><button onClick={() => {removePlayerFromTheList(player)}} key={player.id}>- {player.name}</button></li>
+        <li><button className="button" onClick={() => {removePlayerFromTheList(player)}} key={player.id}>- {player.name}</button></li>
     )
 })
 
@@ -52,6 +48,7 @@ const handleAddPlayerToTheList = (player) => {
     setAllPlayers(newAllPlayers)
 }
 const removePlayerFromTheList = (player) => {
+
     setAllPlayers([...allPlayers, player])
 
     const newSelectedPlayers = selectedPlayers.filter(function(playerinSelectedPlayers){
@@ -93,8 +90,10 @@ const handleSubmitNewSeason = () => {
 if (currentSeason.matches.length < currentSeason.totalMatches){
     return(
         <>
-        <h1>CreateSeason</h1>
+        <div id="create-season-header">
+        <h1>Create Season</h1>
         <h3>Finish the current season first</h3>
+        </div>
         </>
     )
 }
@@ -104,36 +103,46 @@ if (selectedPlayers.length < 10){
 
     return(
         <>
-        <h1>CreateSeason</h1>
-        <NewPlayers getAllPlayers={getAllPlayers} ></NewPlayers>
 
-                <h3>Select 10 players from this list</h3>
-                <p>All Players</p>
+        <h1 id="create-season-header">Create Season</h1>
+                    
+        <div id="createLists">
+            <div>
+            <p>All players:</p>
+            
             <ul>
                 {allPlayerNodes}
             </ul>
-
-        <p>Selected Players</p>
-        <ul>
-            {selectedPlayersNodes}
-        </ul>
+            </div>
+            <div>
+            <p>10 players to start new season:</p>
+            
+            <ul>
+                {selectedPlayersNodes}
+            </ul>
+            </div>
+        </div>
         </>
     )
     } else
         return(
             <>
-            <h1>CreateSeason</h1>
+            <div id="create-season-header">
+            <h1>Create Season</h1>
         
-            <button onClick={handleSubmitNewSeason} >Create New Season</button>
             
             <label> Number of games: </label>
             <input type="number" required min="1" max="99" value={numberOfGames} name="numberOfGames" onChange={handleGameNumber}></input>
             <label> Season name: </label>
 
-            <input type="text" required value={seasonName} name="seasonName" onChange={handleSeasonName}></input>
-            <ul>
+            <input type="text" className="input" id="season-name-input" value={seasonName} name="seasonName" onChange={handleSeasonName}></input>
+            <button className="button"  onClick={handleSubmitNewSeason} >Create New Season</button>
+            </div>
+            <div id="create-season-header">
+            <ul id="players-list-in-create-season">
                 {selectedPlayersNodes}
             </ul>
+            </div>
             </>
         )
 }

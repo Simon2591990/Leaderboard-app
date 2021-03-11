@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -42,26 +43,42 @@
 
 #root{
   display: grid;
+  grid-template-columns:60% 40%;
   grid-template-areas:
   "header header"
   "nav nav"
   "main leaderboard";
+
 }
 
 #header{
   grid-area: header;
   justify-self: center;
+  
 }
 
 #nav-bar{
   grid-area: nav;
   justify-self: center;
+  width: 100%;
+  background-color:rgb(62, 136, 91);
+  border-bottom: 5px solid #F7F3E3;
+  
 }
 
 #leaderboard{
+  
   grid-area: leaderboard;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  /* margin-top: 6em;   */
+
+
 }
 
 #main-content{
   grid-area: main;
+  
 }

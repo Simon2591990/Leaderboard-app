@@ -5,10 +5,11 @@ import CreateSeason from './CreateSeason'
 import SeasonResults from './SeasonResults'
 import Home from '../components/Home'
 import ManagePlayers from '../components/ManagePlayers'
+import "./MainContent.css"
 
 const MainContent = ({seasons, currentSeason, incrementDataCounter}) => {
         return(
-            <Switch>
+            <Switch id="main-content">
                 <Route exact path="/" component={Home}/>
                 <Route
                     path="/create_match"
