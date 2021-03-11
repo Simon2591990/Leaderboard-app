@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import Request from "../helpers/Request"
+import Request from "../helpers/Request";
+import "./NewPlayers.css"
+
 
 const NewPlayers = ({getAllPlayers}) => {
 
@@ -28,8 +30,8 @@ const NewPlayers = ({getAllPlayers}) => {
 
     return(
         <>
-        <h1>Create New Player Tab</h1>
-        <form onSubmit={createPlayer}>
+        <h1>Manage Players</h1>
+        <form onSubmit={createPlayer} class="new-player-form">
         <label>Player Name: </label>
         <input onChange={handlePlayerName} type="text" name="name" value={statePlayer.name}></input>
         <button type="submit" >Add Player</button>

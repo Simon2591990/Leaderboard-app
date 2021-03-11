@@ -1,8 +1,9 @@
 import React from "react"
+import "./Header.css"
 
 const Header = ({title}) => {
     return(
-        <h1>{title}</h1>
+        <h1 id="header">{title}</h1>
     )
 }
 
