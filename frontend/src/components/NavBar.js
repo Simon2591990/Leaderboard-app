@@ -17,6 +17,9 @@ const NavBar = () => {
             <li>
               <Link to="/season_results">Season Results</Link>
             </li>
+            <li>
+              <Link to="/players">Manage Players</Link>
+            </li>
         </ul>
     )
 }

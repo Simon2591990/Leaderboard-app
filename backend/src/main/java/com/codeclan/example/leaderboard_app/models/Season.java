@@ -20,6 +20,9 @@ public class Season {
     @Column(name = "total_matches")
     private int totalMatches;
 
+    @Column(name = "completed")
+    private boolean completed;
+
     @JsonIgnoreProperties(value = "season")
     @OneToMany(mappedBy = "season", fetch = FetchType.LAZY)
     private List<Match> matches;
@@ -40,10 +43,19 @@ public class Season {
         this.totalMatches = totalMatches;
         this.matches = new ArrayList<Match>();
         this.players = new ArrayList<Player>();
+        this.completed = false;
     }
 
     public Season(){
 
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 
     public Long getId() {

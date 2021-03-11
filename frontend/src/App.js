@@ -8,7 +8,6 @@ import {BrowserRouter as Router}  from 'react-router-dom';
 import Request from './helpers/Request';
 
 
-
 function App() {
 
   const [seasons, setSeasons] = useState([]);
@@ -18,8 +17,8 @@ function App() {
   const [currentSeason, setCurrentSeason] = useState([])
 
   const [isLoaded, setIsLoaded] = useState(false)
+  const [newDataCounter, setNewDataCounter] = useState(0)
 
-    
     const getSeasons = () => {
         const request = new Request();
 
@@ -28,14 +27,26 @@ function App() {
           setSeasons(data)
           setPlayers(data[data.length -1].players)
           setCurrentSeason(data[data.length -1])
-          
         })
         .then(() => setIsLoaded(true))
     }
     
     useEffect(() => {
        getSeasons() 
-    }, [])
+    }, [newDataCounter])
+    useEffect(() => {
+      sortPlayersByPoints()
+   }, [players])
+
+    const incrementDataCounter = () => {
+      setNewDataCounter(newDataCounter + 1)
+    }
+
+    const sortPlayersByPoints = () => {
+      players.sort((player1, player2) => {
+        return player2.points - player1.points;
+      })
+    }
 
   
 
@@ -48,11 +59,26 @@ function App() {
   return (
     <Router>
       <>
-      <Header title="Tournament App"/>
-      <NavBar/>
-      <Leaderboard players={players}/>
-      <MainContent seasons={seasons} currentSeason={currentSeason}/>
-    </>
+      <div id="header">
+        <Header title="Tournament App"/>
+      </div>
+      <div id="nav-bar">
+        <NavBar/>
+      </div>
+      <div id="leaderboard">
+        <Leaderboard
+        players={players}
+        currentSeasonName={currentSeason.name}
+        />
+      </div>
+      <div id="main-content">
+        <MainContent 
+        seasons={seasons}
+        currentSeason={currentSeason}
+        incrementDataCounter={incrementDataCounter}
+        />
+      </div>
+      </>
     </Router>
     
   );

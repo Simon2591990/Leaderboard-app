@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,6 +47,11 @@ public class PlayerController {
         playerToUpdate.setPoints(player.getPoints());
         playerToUpdate.setTeams(player.getTeams());
         playerToUpdate.setSeasons(player.getSeasons());
+        playerToUpdate.setTotalGamesPlayed(player.getTotalGamesPlayed());
+        playerToUpdate.setTotalGamesWon(player.getTotalGamesWon());
+        playerToUpdate.setTotalGamesLost(player.getTotalGamesLost());
+        playerToUpdate.setTotalGamesDrawn(player.getTotalGamesDrawn());
+        playerToUpdate.setTotalPoints(player.getTotalPoints());
 
         playerRepository.save(playerToUpdate);
         return new ResponseEntity<Player>(playerToUpdate, HttpStatus.OK);
@@ -57,6 +63,7 @@ public class PlayerController {
         playerRepository.delete(found);
         return new ResponseEntity<> (null, HttpStatus.OK);
     }
+
 
 
 }

@@ -36,21 +36,21 @@ public class DataLoader implements ApplicationRunner {
         Season season1 = new Season("Season 1",10);
         seasonRepository.save(season1);
 
-        Match match1 = new Match (1,season1);
-        matchRepository.save(match1);
-        Match match2 = new Match (2,season1);
-        matchRepository.save(match2);
-        Match match3 = new Match (3,season1);
-        matchRepository.save(match3);
+//        Match match1 = new Match (1,season1);
+//        matchRepository.save(match1);
+//        Match match2 = new Match (2,season1);
+//        matchRepository.save(match2);
+//        Match match3 = new Match (3,season1);
+//        matchRepository.save(match3);
 
-        Team team1 = new Team("Team 1", match1);
-        Team team2 = new Team("Team 2", match1);
-
-        Team team3 = new Team("Team 3", match2);
-        Team team4 = new Team("Team 4", match2);
-
-        Team team5 = new Team("Team 5", match3);
-        Team team6 = new Team("Team 6", match3);
+//        Team team1 = new Team("Team 1", match1);
+//        Team team2 = new Team("Team 2", match1);
+//
+//        Team team3 = new Team("Team 3", match2);
+//        Team team4 = new Team("Team 4", match2);
+//
+//        Team team5 = new Team("Team 5", match3);
+//        Team team6 = new Team("Team 6", match3);
 
         Player player1 = new Player("Player 1");
         Player player2 = new Player("Player 2");
@@ -73,63 +73,63 @@ public class DataLoader implements ApplicationRunner {
         playerRepository.save(player9);
         playerRepository.save(player10);
 
-        team1.addPlayer(player1);
-        team1.addPlayer(player2);
-        team1.addPlayer(player3);
-        team1.addPlayer(player4);
-        team1.addPlayer(player5);
-        teamRepository.save(team1);
+//        team1.addPlayer(player1);
+//        team1.addPlayer(player2);
+//        team1.addPlayer(player3);
+//        team1.addPlayer(player4);
+//        team1.addPlayer(player5);
+//        teamRepository.save(team1);
+//
+//        team2.addPlayer(player6);
+//        team2.addPlayer(player7);
+//        team2.addPlayer(player8);
+//        team2.addPlayer(player9);
+//        team2.addPlayer(player10);
+//        teamRepository.save(team2);
+//
+//        team3.addPlayer(player1);
+//        team3.addPlayer(player2);
+//        team3.addPlayer(player3);
+//        team3.addPlayer(player4);
+//        team3.addPlayer(player5);
+//        teamRepository.save(team3);
+//
+//        team4.addPlayer(player6);
+//        team4.addPlayer(player7);
+//        team4.addPlayer(player8);
+//        team4.addPlayer(player9);
+//        team4.addPlayer(player10);
+//        teamRepository.save(team4);
+//
+//        team5.addPlayer(player1);
+//        team5.addPlayer(player2);
+//        team5.addPlayer(player3);
+//        team5.addPlayer(player4);
+//        team5.addPlayer(player5);
+//        teamRepository.save(team5);
+//
+//        team6.addPlayer(player6);
+//        team6.addPlayer(player7);
+//        team6.addPlayer(player8);
+//        team6.addPlayer(player9);
+//        team6.addPlayer(player10);
+//        teamRepository.save(team6);
 
-        team2.addPlayer(player6);
-        team2.addPlayer(player7);
-        team2.addPlayer(player8);
-        team2.addPlayer(player9);
-        team2.addPlayer(player10);
-        teamRepository.save(team2);
+//        match1.addTeam(team1);
+//        match1.addTeam(team2);
+//        matchRepository.save(match1);
+//
+//        match2.addTeam(team3);
+//        match2.addTeam(team4);
+//        matchRepository.save(match2);
+//
+//        match3.addTeam(team5);
+//        match3.addTeam(team6);
+//        matchRepository.save(match3);
 
-        team3.addPlayer(player1);
-        team3.addPlayer(player2);
-        team3.addPlayer(player3);
-        team3.addPlayer(player4);
-        team3.addPlayer(player5);
-        teamRepository.save(team3);
-
-        team4.addPlayer(player6);
-        team4.addPlayer(player7);
-        team4.addPlayer(player8);
-        team4.addPlayer(player9);
-        team4.addPlayer(player10);
-        teamRepository.save(team4);
-
-        team5.addPlayer(player1);
-        team5.addPlayer(player2);
-        team5.addPlayer(player3);
-        team5.addPlayer(player4);
-        team5.addPlayer(player5);
-        teamRepository.save(team5);
-
-        team6.addPlayer(player6);
-        team6.addPlayer(player7);
-        team6.addPlayer(player8);
-        team6.addPlayer(player9);
-        team6.addPlayer(player10);
-        teamRepository.save(team6);
-
-        match1.addTeam(team1);
-        match1.addTeam(team2);
-        matchRepository.save(match1);
-
-        match2.addTeam(team3);
-        match2.addTeam(team4);
-        matchRepository.save(match2);
-
-        match3.addTeam(team5);
-        match3.addTeam(team6);
-        matchRepository.save(match3);
-
-        season1.addMatch(match1);
-        season1.addMatch(match2);
-        season1.addMatch(match3);
+//        season1.addMatch(match1);
+//        season1.addMatch(match2);
+//        season1.addMatch(match3);
         season1.addPlayer(player1);
         season1.addPlayer(player2);
         season1.addPlayer(player3);

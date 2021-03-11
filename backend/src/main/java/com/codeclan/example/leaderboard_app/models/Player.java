@@ -33,6 +33,21 @@ public class Player {
     @Column(name = "points")
     private int points;
 
+    @Column(name = "total_games_played")
+    private int totalGamesPlayed;
+
+    @Column(name = "total_wins")
+    private int totalGamesWon;
+
+    @Column(name = "total_loses")
+    private int totalGamesLost;
+
+    @Column(name = "total_draws")
+    private int totalGamesDrawn;
+
+    @Column(name = "total_points")
+    private int totalPoints;
+
     @JsonIgnoreProperties(value = {"players", "matches"})
     @ManyToMany
     @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
@@ -63,6 +78,11 @@ public class Player {
         this.gamesLost = 0;
         this.gamesDrawn = 0;
         this.points = 0;
+        this.totalGamesPlayed = 0;
+        this.totalGamesWon = 0;
+        this.totalGamesLost = 0;
+        this.totalGamesDrawn = 0;
+        this.totalPoints = 0;
         this.teams = new ArrayList<Team>();
         this.seasons = new ArrayList<Season>();
 
@@ -119,6 +139,46 @@ public class Player {
         this.points = points;
     }
 
+    public int getTotalGamesPlayed() {
+        return totalGamesPlayed;
+    }
+
+    public void setTotalGamesPlayed(int totalGamesPlayed) {
+        this.totalGamesPlayed = totalGamesPlayed;
+    }
+
+    public int getTotalGamesWon() {
+        return totalGamesWon;
+    }
+
+    public void setTotalGamesWon(int totalGamesWon) {
+        this.totalGamesWon = totalGamesWon;
+    }
+
+    public int getTotalGamesLost() {
+        return totalGamesLost;
+    }
+
+    public void setTotalGamesLost(int totalGamesLost) {
+        this.totalGamesLost = totalGamesLost;
+    }
+
+    public int getTotalGamesDrawn() {
+        return totalGamesDrawn;
+    }
+
+    public void setTotalGamesDrawn(int totalGamesDrawn) {
+        this.totalGamesDrawn = totalGamesDrawn;
+    }
+
+    public int getTotalPoints() {
+        return totalPoints;
+    }
+
+    public void setTotalPoints(int totalPoints) {
+        this.totalPoints = totalPoints;
+    }
+
     public Long getId() {
         return id;
     }
@@ -142,17 +202,28 @@ public class Player {
         this.seasons = seasons;
     }
     public void handleResult(String result){
+        this.gamesPlayed += 1;
+        this.totalGamesPlayed += 1;
         if (result == "win"){
-            this.gamesPlayed += 1;
             this.gamesWon += 1;
             this.points += 3;
+            this.totalGamesWon += 1;
+            this.totalPoints += 3;
         }if (result == "draw"){
-            this.gamesPlayed += 1;
             this.gamesDrawn += 1;
             this.points += 1;
+            this.totalGamesDrawn += 1;
+            this.totalPoints += 1;
         }if (result == "loss"){
-            this.gamesPlayed += 1;
             this.gamesLost += 1;
+            this.totalGamesLost += 1;
         }
+    }
+    public void resetSeasonResults(){
+        this.gamesPlayed = 0;
+        this.gamesWon = 0;
+        this.gamesLost = 0;
+        this.gamesDrawn = 0;
+        this.points = 0;
     }
 }
