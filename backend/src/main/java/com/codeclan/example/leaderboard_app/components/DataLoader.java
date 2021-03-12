@@ -33,7 +33,7 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args)  {
 
-        Season season1 = new Season("Season 1",10);
+        Season season1 = new Season("Season 1",3);
         seasonRepository.save(season1);
 
         Match match1 = new Match (1,season1);
