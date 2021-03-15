@@ -31,25 +31,27 @@ The team would upload match scores with each player getting points for winning t
 The web app has a Java Spring backend, a React frontent, and uses PostgreSQL for the database.
 
 #### Database
-To create a database with PostgreSQL, execute the following in the command line:
+To create a database with PostgreSQL, execute the following in the command line:\
   `createdb leaderboard_app`. 
   
 #### Backend
-Within the backend directory, compile and run the "LeaderboardAppApplication.java" file.  
-If you would like to start with an empty database, remove the contents of "DataLoader.java".  
-The backend API runs on http://localhost:8080/api. 
+- Within the backend directory, compile and run the "LeaderboardAppApplication.java" file.  
+- If you would like to start with an empty database, remove the contents of "DataLoader.java".  
+- The backend API runs on http://localhost:8080/api. 
 
 #### Frontend
-From the frontend directory, install the npm dependencies. 
+From the frontend directory, install the npm dependencies.\
   `npm install`. 
 
-To start the front end, execute. 
+To start the front end, execute.\
   `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ## Development Team
-Stanley Houcke (https://github.com/Stanhoucke). 
-Simon Charters (https://github.com/Simon2591990). 
-Maciej 'Max' Doroszkiewicz (https://github.com/portypy). 
+[Stanley Houcke](https://github.com/Stanhoucke)
+
+[Simon Charters](https://github.com/Simon2591990)
+
+[Maciej 'Max' Doroszkiewicz](https://github.com/portypy) 
