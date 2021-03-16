@@ -55,3 +55,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 [Simon Charters](https://github.com/Simon2591990)
 
 [Maciej 'Max' Doroszkiewicz](https://github.com/portypy) 
+
+
+![Screenshot 2021-03-15 at 19 30 26](https://user-images.githubusercontent.com/72009564/111350847-74e18180-867a-11eb-8852-c3bc5fd8c16b.png)
+
+
+![Screenshot 2021-03-15 at 19 34 40](https://user-images.githubusercontent.com/72009564/111351051-ab1f0100-867a-11eb-826c-4ea0ee393cff.png)
