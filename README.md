@@ -28,7 +28,7 @@ The team would upload match scores with each player getting points for winning t
 
 ## How to run
 #### Installations
-The web app has a Java Spring backend, a React frontent, and uses PostgreSQL for the database.
+The web app has a Java Spring backend, a React frontend, and uses PostgreSQL for the database.
 
 #### Database
 To create a database with PostgreSQL, execute the following in the command line:\
